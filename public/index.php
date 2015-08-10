@@ -28,6 +28,5 @@
         </section>
         <!-- FOOTER GOES BELOW -->
         <?php include_once '../views/partials/footer.php';?>
-
     </body>
 </html>
