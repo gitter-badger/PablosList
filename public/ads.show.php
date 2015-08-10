@@ -1,0 +1,1 @@
+<!-- view of individual ad -->
