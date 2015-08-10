@@ -1,12 +1,23 @@
 <html>
 
-
 <!-- listing of all ads -->
 <head>
 <link href="https://assets-fs.wnlimg.com/assets/wnl_base-c57882fd3889e68c0a09667f2e18fcd4.css" media="all" rel="stylesheet" type="text/css">
 <link href="https://assets-fs.wnlimg.com/assets/wnl_web-d1f8f19b7b885693d86ad23ecdb98cdc.css" media="all" rel="stylesheet" type="text/css">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link href="https://bootswatch.com/lumen/bootstrap.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+    <link href="css/header.css" rel="stylesheet" type="text/css">
+    <link href="css/pasta.css" rel="stylesheet" type="text/css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body>
+ <?php include_once '../views/partials/navbar.php';?>
 <div class="js-paginated-product user-product-card product-overlay-container generic-product-card pull-left"><a href="/p/22103676/rubber-ducks-ankle-socks" class="product-thumbnail js-open-product-modal product-active" data-params="{&quot;product_id&quot;:22103676}" data-requesting-action="show"><img alt="Rubber Ducks Ankle Socks" src="https://cdn-img-0.wanelo.com/p/c76/8fd/477/5cff3bc8eeec0a24fdb9e2f/x354-q80.jpg"></a><div class="product-info">
 <h3>
 Rubber Ducks Ankle Socks</h3>
@@ -456,5 +467,6 @@ saves
 </div>
 </div>
 </div></div>
+ <?php include_once '../views/partials/footer.php';?>
 </body>
 </html>
