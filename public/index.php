@@ -15,14 +15,17 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     </head>
     <body>
+        <section class="container-fluid">
+        <?php include_once '../views/partials/navbar.php';?>
 
         <!-- HEADER GOES BELOW -->
         <?php include_once '../views/partials/header.php';?>
+        </section>
 
         <section>
         <!-- PABLOS SH*T GOES HERE -->
-        </section>
 
+        </section>
         <!-- FOOTER GOES BELOW -->
         <?php include_once '../views/partials/footer.php';?>
     </body>
