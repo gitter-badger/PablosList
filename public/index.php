@@ -1,4 +1,3 @@
-<!-- marketing homepage -->
 <!DOCTYPE html>
 <html>
     <head>
@@ -25,7 +24,7 @@
 
         <section>
         <!-- PABLOS SH*T GOES HERE -->
-        
+
         </section>
         <!-- FOOTER GOES BELOW -->
         <?php include_once '../views/partials/footer.php';?>
