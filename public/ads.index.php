@@ -1,6 +1,5 @@
 <html>
 
-<!-- listing of all ads -->
 <head>
 <link href="https://assets-fs.wnlimg.com/assets/wnl_base-c57882fd3889e68c0a09667f2e18fcd4.css" media="all" rel="stylesheet" type="text/css">
 <link href="https://assets-fs.wnlimg.com/assets/wnl_web-d1f8f19b7b885693d86ad23ecdb98cdc.css" media="all" rel="stylesheet" type="text/css">

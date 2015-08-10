@@ -1,4 +1,4 @@
-<!-- marketing homepage -->
+
 <!DOCTYPE html>
 <html>
     <head>
