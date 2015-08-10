@@ -1,3 +1,2 @@
-# PablosList
-
-PablosList is a Ebay/Craigslist clone.
+#PablosList
+No Ducking Around Adlister
