@@ -51,7 +51,7 @@
                 [
                     'title' => 'Autographed Mont Blanc by Pablo King',
                     'tags' => 'pen, autographed, historical item',
-                    'img_url' => '#',
+                    'img_url' => '/img/ducks/full_size.jpg',
                     'date_created' => '2015-08-12',
     				'price' => 9000.00,
                     'description' => 'Pen signed by Pablo King the world class business duck. Was used in business deals to stack those greenbills.',
@@ -60,7 +60,7 @@
 			    [
                     'title' => 'Original iPod Shuffle',
                     'tags' => 'Apple, iPod, MP3 player, used',
-                    'img_url' => '#',
+                    'img_url' => '/img/ducks/full_size.jpg',
                     'date_created' => '2015-08-12',
 				    'price' => 64.99,
                     'description' => 'Slightly worn with occasional electric shortings caused by lingering sweat damage.',
@@ -69,7 +69,7 @@
 			    [
                     'title' => 'Rich, Sugar Duck seeking fun flirty female friend',
                     'tags' => 'non-platonic, risky-seeker, proverbial home-wrecker',
-                    'img_url' => '#',
+                    'img_url' => '/img/ducks/full_size.jpg',
                     'date_created' => '2015-08-12',
 				    'price' => null,
                     'description' => 'Looking for a good time. Love to dance.',
@@ -78,7 +78,7 @@
 			    [
                     'title' => 'Fancy as Duck Socks',
                     'tags' => 'socks, fancy, fashion',
-                    'img_url' => '#',
+                    'img_url' => '/img/ducks/full_size.jpg',
                     'date_created' => '2015-08-12',
 				    'price' => 49.99,
                     'description' => 'Cutest socks ever. You should buy them! :)',
