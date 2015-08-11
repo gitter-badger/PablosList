@@ -17,8 +17,7 @@ $usersMigration =
 	 last_name  VARCHAR(100) NOT NULL,
 	 email	    VARCHAR(100) NOT NULL,
 	 password   VARCHAR(100) NOT NULL,
-	 phone	    VARCHAR(100),
-	 bio        VARCHAR(255),
+     avatar_img VARCHAR(100) DEFAULT NULL,
 	 UNIQUE KEY email (email),
 	 PRIMARY KEY (user_id))';
 
