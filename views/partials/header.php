@@ -16,8 +16,8 @@
       <div class="slide-1"></div>
       <div class="hero">
         <hgroup>
-            <h1>Duck Duck Sold</h1>
-            <h2>No Ducking Around Adlister</h2>
+            <h1>Duck.. Duck... Sold!</h1>
+            <h2>Simple - No Ducking Around Listings</h2>
         </hgroup>
         <!-- <button class="btn btn-hero btn-lg" role="button">See all features</button> -->
       </div>
@@ -26,8 +26,8 @@
       <div class="slide-2"></div>
       <div class="hero">
         <hgroup>
-            <h1>Quacks Buy it All at Pablo's</h1>
-            <h3>Dust Off Your Wares</h3>
+            <h1>Get Quacking and Post Now</h1>
+            <h3>Quacks Buy Everything!</h3>
         </hgroup>
         <!-- <button class="btn btn-hero btn-lg" role="button">See all features</button> -->
       </div>
@@ -36,8 +36,8 @@
       <div class="slide-3"></div>
       <div class="hero">
         <hgroup>
-            <h1>Personal Listings Only</h1>
-            <h3>Businesses Can't Shark Pablo</h3>
+            <h1>Sell With Confidence at Pablo's List</h1>
+            <h3>Never Again Craigslist Scammed</h3>
         </hgroup>
         <!-- <button class="btn btn-hero btn-lg" role="button">See all features</button> -->
       </div>

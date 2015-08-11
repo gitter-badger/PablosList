@@ -16,15 +16,12 @@
     </head>
     <body>
         <section class="container-fluid">
+        <?php include_once '../views/partials/navbar.php';?>
         <!-- HEADER GOES BELOW -->
         <?php include_once '../views/partials/header.php';?>
-
-        <?php include_once '../views/partials/navbar.php';?>
         </section>
-
         <section>
         <!-- PABLOS SH*T GOES HERE -->
-
         </section>
         <!-- FOOTER GOES BELOW -->
         <?php include_once '../views/partials/footer.php';?>

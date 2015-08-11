@@ -8,24 +8,25 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="http://www.textfiles.com/underconstruction/" target="_blank">workInProgress</a>
+      <a class="navbar-brand" href="index.php" >Pablo's List</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="http://codeup.rocks/" target="_blank">Haters</a></li>
-        <li><a href="http://codeup.rocks/" target="_blank">Gonna</a></li>
+        <li><a href="ads.show.php" >Pablo's Pick</a></li>
+        <li><a href="ads.index.php">Browse</a></li>
+        <li><a href="ron_ducking_swanson.html" >RonDuckingSwanson</a></li>
         <li class="dropdown">
-          <a href="http://codeup.rocks/" class="dropdown-toggle" data-toggle="dropdown">Hate <span class="caret"></span></a>
+          <a href="" class="dropdown-toggle" data-toggle="dropdown">Account<span class="caret"></span> </a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="http://www.nyan.cat/tacnayn" target="_blank">Exercises</a></li>
-            <li><a href="http://www.nyan.cat/tacnayn" target="_blank">Articles</a></li>
-            <li><a href="http://www.nyan.cat/j5" target="_blank">Ran Out of Cool Actions</a></li>
+            <li><a href="" >Show My Listings</a></li>
+            <li><a href="" >Post New Listing</a></li>
+            <li><a href="" >My Watchlist</a></li>
             <li class="divider"></li>
-            <li><a href="http://vanillabean.dev" target="_blank">Portfolio Thing</a></li>
+            <li><a href="" >Ran Out Of Cool Things</a></li>
             <li class="divider"></li>
-            <li><a href="http://www.nyan.cat/mexinyan" target="_blank">Mexinyan</a></li>
+            <li><a href="">My Profile</a></li>
           </ul>
         </li>
       </ul>
@@ -43,13 +44,7 @@
 				<li>
 					 <div class="row">
 							<div class="col-md-12">
-								Login via
-								<div class="social-buttons">
-									<a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
-									<a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
-								</div>
-                                or
-								 <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+								 <form class="form" role="form" method="post" action="auth.login.php" accept-charset="UTF-8" id="login-nav">
 										<div class="form-group">
 											 <label class="sr-only" for="exampleInputEmail2">Email address</label>
 											 <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
@@ -70,7 +65,7 @@
 								 </form>
 							</div>
 							<div class="bottom text-center">
-								New here ? <a href="#"><b>Join Us</b></a>
+								New here ? <a href="users.create.php"><b>Join Us</b></a>
 							</div>
 					 </div>
 				</li>
