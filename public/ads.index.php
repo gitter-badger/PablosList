@@ -1,4 +1,5 @@
 <html>
+
 <head>
 <link href="https://assets-fs.wnlimg.com/assets/wnl_base-c57882fd3889e68c0a09667f2e18fcd4.css" media="all" rel="stylesheet" type="text/css">
 <link href="https://assets-fs.wnlimg.com/assets/wnl_web-d1f8f19b7b885693d86ad23ecdb98cdc.css" media="all" rel="stylesheet" type="text/css">
@@ -8,22 +9,41 @@
     <link href="//fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
     <link href="css/header.css" rel="stylesheet" type="text/css">
     <link href="css/pasta.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/lightbox.min.css">
+    <link rel="stylesheet" href="css/elegant-icons.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="rs-plugin/css/settings.css">
+    <link rel="stylesheet" href="css/rev-slider.css">
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="css/flexslider.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/spacings.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/color.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <style type="text/css">
+    .show-item {
+    	max-height:262px;
+    	max-width:322px;
+    }
+    </style>
 </head>
 <body>
  <?php include_once '../views/partials/navbar.php';?>
-<div class="row shop-catalogue grid-view left">
-
+							<div class="container-relative">
+								<div class="col-md-9 right">
+								<div class="row shop-catalogue grid-view left">
 					            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 product product-grid">
-			            			<div class="product-item">
+			            			<div class="product-item show-image">
 			            				<div class="product-img hover-1">
 			                				<a href="#">
-			                					<img src="img/shop_item_1.jpg" alt="">
-			                					<img src="img/shop_item_1_back.jpg" alt="" class="back-img">
+			                					<img src="http://ecx.images-amazon.com/images/I/71XM88dKoGL._SL1500_.jpg" alt="" class="show-item">
 			                				</a>
 			                				<div class="product-label">
 			                					<span class="onsale">sale</span>
@@ -64,11 +84,10 @@
 			            		</div>
 
 			            		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 product product-grid">
-			            			<div class="product-item">
+			            			<div class="product-item show-image">
 			            				<div class="product-img hover-1">
 			                				<a href="#">
-			                					<img src="img/shop_item_2.jpg" alt="">
-			                					<img src="img/shop_item_2_back.jpg" alt="" class="back-img">
+			                					<img src="http://ecx.images-amazon.com/images/I/515HUViELGL.jpg" alt="" class="show-item">
 			                				</a>
 			                				<div class="product-label">
 			                					<span class="new">new</span>
@@ -109,11 +128,10 @@
 			            		</div>
 
 			            		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 product product-grid">
-			            			<div class="product-item">
+			            			<div class="product-item show-image">
 			            				<div class="product-img hover-1">
 			                				<a href="#">
-			                					<img src="img/shop_item_3.jpg" alt="">
-			                					<img src="img/shop_item_3_back.jpg" alt="" class="back-img">
+			                					<img src="http://ecx.images-amazon.com/images/I/41pSZfZBRYL.jpg" alt="" class="show-item">
 			                				</a>
 			                				<div class="hover-overlay"></div>
 			                				<div class="product-add-to-cart">
@@ -148,11 +166,10 @@
 			            		</div>
 
 			            		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 product product-grid">
-		                			<div class="product-item">
+		                			<div class="product-item show-image">
 		                				<div class="product-img hover-1">
 			                				<a href="#">
-			                					<img src="img/shop_item_4.jpg" alt="">
-			                					<img src="img/shop_item_4_back.jpg" alt="" class="back-img">
+			                					<img src="http://ecx.images-amazon.com/images/I/A1t7hwxYzlL._UY662_.jpg" alt="" class="show-item">
 			                				</a>
 			                				<div class="product-label">
 			                					<span class="sold">sold out</span>
@@ -190,11 +207,10 @@
 		                		</div>
 
 		                		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 product product-grid">
-		                			<div class="product-item">
+		                			<div class="product-item show-image">
 		                				<div class="product-img hover-1">
 			                				<a href="#">
-			                					<img src="img/shop_item_5.jpg" alt="">
-			                					<img src="img/shop_item_5_back.jpg" alt="" class="back-img">
+			                					<img src="http://ecx.images-amazon.com/images/I/91NXddVsrtL._SX522_.jpg" alt="" class="show-image">
 			                				</a>
 			                				<div class="hover-overlay"></div>
 			                				<div class="product-add-to-cart">
@@ -229,11 +245,10 @@
 		                		</div>
 
 		                		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 product product-grid">
-		                			<div class="product-item">
+		                			<div class="product-item show-image">
 		                				<div class="product-img hover-1">
 			                				<a href="#">
-			                					<img src="img/shop_item_6.jpg" alt="">
-			                					<img src="img/shop_item_6_back.jpg" alt="" class="back-img">
+			                					<img src="http://ecx.images-amazon.com/images/I/71SUUttQ0VL._SL1062_.jpg" alt="" class="show-image">
 			                				</a>
 			                				<div class="product-label">
 			                					<span class="onsale">sale</span>
@@ -274,11 +289,10 @@
 		                		</div>
 
 		                		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 product product-grid">
-		                			<div class="product-item">
+		                			<<div class="product-item show-image">
 		                				<div class="product-img hover-1">
 			                				<a href="#">
-			                					<img src="img/shop_item_7.jpg" alt="">
-			                					<img src="img/shop_item_7_back.jpg" alt="" class="back-img">
+			                					<img src="http://ecx.images-amazon.com/images/I/61af3Wu7moL._SL1100_.jpg" alt="" class="show-image">
 			                				</a>
 			                				<div class="hover-overlay"></div>
 			                				<div class="product-add-to-cart">
@@ -316,11 +330,10 @@
 		                		</div>
 
 		                		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 product product-grid">
-		                			<div class="product-item">
+		                			<div class="product-item show-image">
 		                				<div class="product-img hover-1">
 			                				<a href="#">
-			                					<img src="img/shop_item_8.jpg" alt="">
-			                					<img src="img/shop_item_8_back.jpg" alt="" class="back-img">
+			                					<img src="http://ecx.images-amazon.com/images/I/517AsEET0oL.jpg" alt="">
 			                				</a>
 			                				<div class="hover-overlay"></div>
 			                				<div class="product-add-to-cart">
@@ -355,11 +368,10 @@
 		                		</div>
 
 		                		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 product product-grid">
-		                			<div class="product-item">
+		                			<div class="product-item show-image">
 		                				<div class="product-img hover-1">
 			                				<a href="#">
-			                					<img src="img/shop_item_9.jpg" alt="">
-			                					<img src="img/shop_item_9_back.jpg" alt="" class="back-img">
+			                					<img src="http://ecx.images-amazon.com/images/I/71E-RAdTI4L._SL1500_.jpg" alt="" class="show-image">
 			                				</a>
 			                				<div class="hover-overlay"></div>
 			                				<div class="product-add-to-cart">
@@ -397,11 +409,10 @@
 		                		</div>
 
 		                		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 product product-grid">
-		                			<div class="product-item">
+		                			<div class="product-item show-image">
 		                				<div class="product-img hover-1">
 			                				<a href="#">
-			                					<img src="img/shop_item_10.jpg" alt="">
-			                					<img src="img/shop_item_10_back.jpg" alt="" class="back-img">
+			                					<img src="http://ecx.images-amazon.com/images/I/61snRD50HzL._SL1000_.jpg" alt="" class="show-image">
 			                				</a>
 			                				<div class="hover-overlay"></div>
 			                				<div class="product-add-to-cart">
@@ -439,11 +450,10 @@
 		                		</div>
 
 		                		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 product product-grid">
-		                			<div class="product-item">
+		                			<div class="product-item show-image">
 		                				<div class="product-img hover-1">
 			                				<a href="#">
-			                					<img src="img/shop_item_11.jpg" alt="">
-			                					<img src="img/shop_item_11_back.jpg" alt="" class="back-img">
+			                					<img src="http://ecx.images-amazon.com/images/I/41hivUTsQYL.jpg" alt="" class="show-image">
 			                				</a>
 			                				<div class="hover-overlay"></div>
 			                				<div class="product-add-to-cart">
@@ -478,11 +488,10 @@
 		                		</div>
 
 		                		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 product product-grid">
-		                			<div class="product-item">
+		                			<div class="product-item show-image">
 		                				<div class="product-img hover-1">
 			                				<a href="#">
-			                					<img src="img/shop_item_12.jpg" alt="">
-			                					<img src="img/shop_item_12_back.jpg" alt="" class="back-img">
+			                					<img src="http://ecx.images-amazon.com/images/I/71CqOWllTsL._SL1500_.jpg" alt="" class="show-image">
 			                				</a>
 			                				<div class="hover-overlay"></div>
 			                				<div class="product-add-to-cart">
@@ -515,8 +524,9 @@
 		                				</div>
 		                			</div>
 		                		</div>
-
+		                	</div>
 		            		</div>
+		            	</div>
  <?php include_once '../views/partials/footer.php';?>
 </body>
 </html>
