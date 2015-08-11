@@ -1,15 +1,36 @@
 <?php
 	require_once '../bootstrap.php';
+	$dbc->exec('TRUNCATE users');
 	$dbc->exec('TRUNCATE ads');
 	$dbc->exec('TRUNCATE tags');
-	$dbc->exec('TRUNCATE users');
 
-	$users = [['first_name' => 'Pablo',    'last_name' => 'Pinero',   'email' => 'pablo@email.com',  		   'password' => 'pablops', 		 'phone' => '12101234567', 'bio' => 'I write... a lot.'],
-			  ['first_name' => 'Keenan',   'last_name' => 'Treat',    'email' => 'keenan@email.com', 		   'password' => 'elchongo', 		 'phone' => '12101234567', 'bio' => 'I\'ve a daddy.'],
-			  ['first_name' => 'Willy',    'last_name' => 'B',        'email' => 'willyb@me.com', 			   'password' => 'shinebright', 	 'phone' => '12101234567', 'bio' => ''],
-			  ['first_name' => 'Barry',    'last_name' => 'O', 		  'email' => 'bigOnotation@whitehouse.gov','password' => 'phoeneticboehner', 'phone' => '12101234567', 'bio' => 'History shall remember my name'],
-			  ['first_name' => 'Susan',    'last_name' => 'Sarandon', 'email' => 'ss@email.com', 			   'password' => 'goodluckguessing', 'phone' => '12101234567', 'bio' => 'Like you don\'t know me already.'],
-			  ['first_name' => 'Goodluck', 'last_name' => 'Jonathan', 'email' => 'goodluckjohnny@nigeria.gov', 'password' => 'buhari', 		   	 'phone' => '12101234567', 'bio' => 'Wiki me.']];
+	$users = [
+                [
+                    'first_name' => 'Pablo',
+                    'last_name' => 'King',
+                    'email' => 'pablo@winning.com',
+                    'password' => '$2y$10$/qmZ8IRNbltJykLCsUtFf.9zgA2qJL0sh5OJuHK7og/qSENAmzz1ephp',
+                    'phone' => '12101234567',
+                    'bio' => 'Win Here, Win There, Win Win Everywhere.'
+                ],
+			    [
+                    'first_name' => 'Justin',
+                    'last_name' => 'Beere',
+                    'email' => 'justin@codeup.rocks',
+                    'password' => '$2y$10$/qmZ8IRNbltJykLCsUtFf.9zgA2qJL0sh5OJuHK7og/qSENAmzz1ephp',
+                    'phone' => '12101234567',
+                    'bio' => 'What is love, Pablo don\'t hurt me...'
+                ],
+			    [
+                  'first_name' => 'Meghan',
+                  'last_name' => 'Ahrens',
+                  'email' => 'meghan@codeup.rocks',
+                  'password' => '$2y$10$/qmZ8IRNbltJykLCsUtFf.9zgA2qJL0sh5OJuHK7og/qSENAmzz1ephp',
+                  'phone' => '12101234567',
+                  'bio' => ''
+                ]
+            ];
+
 	print_r($users);
 
 
@@ -26,16 +47,44 @@
 		$stmt->execute();
 	}
 
-	$ads = [['title' => 'Autographed Mont Blanc fountain pen',   'tags' => 'pen, autographed, historical item',	 'img_url' => '#', 'date_created' => '2015-04-18',
-				 'price' => 350.00, 'description' => 'Pen signed by Thomas Treat Paine. Was purportedly used to lobotomized many pygmies.', 'user_id' => 1],
-			['title' => 'Original iPod Shuffle', 			     'tags' => 'Apple, iPod, MP3 player, used',	   	 'img_url' => '#', 'date_created' => '2015-04-18',
-				 'price' => 64.99,  'description' => 'Slightly worn with occasional electric shortings caused by lingering sweat damage.', 'user_id' => 2],
-			['title' => 'Fun, flirty minor seeking sugar daddy', 'tags' => 'non-platonic, risky-seeker, proverbial home-wrecker', 'img_url' => '#', 'date_created' => '2015-04-18',
-				 'price' => null, 'description' => 'Looking for a good time. Love to dance.', 'user_id' => 3],
-			['title' => 'Political influence', 					 'tags' => 'geopolitics, realpolitik, vested interests, used','img_url' => '#', 'date_created' => '2015-04-18',
-				 'price' => 99999.99 , 'description' => 'Need to buy political influence to alter the course of the history?', 'user_id' => 4],
-			['title' => 'Television Set',						 'tags' => 'tech, entertainment system, self-loathing','img_url' => '#', 'date_created' => '2015-04-18',
-				 'price' => 0.25 , 'description' => 'Selling my old TV set. Enjoy.', 'user_id' => 4]];
+	$ads = [
+                [
+                    'title' => 'Autographed Mont Blanc by Pablo King',
+                    'tags' => 'pen, autographed, historical item',
+                    'img_url' => '#',
+                    'date_created' => '2015-08-12',
+    				'price' => 9000.00,
+                    'description' => 'Pen signed by Pablo King the world class business duck. Was used in business deals to stack those greenbills.',
+                    'user_id' => 1
+                ],
+			    [
+                    'title' => 'Original iPod Shuffle',
+                    'tags' => 'Apple, iPod, MP3 player, used',
+                    'img_url' => '#',
+                    'date_created' => '2015-08-12',
+				    'price' => 64.99,
+                    'description' => 'Slightly worn with occasional electric shortings caused by lingering sweat damage.',
+                    'user_id' => 2
+                ],
+			    [
+                    'title' => 'Rich, Sugar Duck seeking fun flirty female friend',
+                    'tags' => 'non-platonic, risky-seeker, proverbial home-wrecker',
+                    'img_url' => '#',
+                    'date_created' => '2015-08-12',
+				    'price' => null,
+                    'description' => 'Looking for a good time. Love to dance.',
+                    'user_id' => 1
+                ],
+			    [
+                    'title' => 'Fancy as Duck Socks',
+                    'tags' => 'socks, fancy, fashion',
+                    'img_url' => '#',
+                    'date_created' => '2015-08-12',
+				    'price' => 49.99,
+                    'description' => 'Cutest socks ever. You should buy them! :)',
+                    'user_id' => 3
+                ]
+			];
 
 	foreach($ads as $ad)
 	{
