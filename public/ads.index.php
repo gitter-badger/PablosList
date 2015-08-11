@@ -444,8 +444,7 @@ posted by
 <a href="/wonderlantis">wonderlantis</a>
 </div>
 <div class="store">
-from
-<a href="/store/qrhinestones">qrhinesto...</a>
+
 |
 <span>
 $2.90
