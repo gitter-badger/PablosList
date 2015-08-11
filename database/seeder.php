@@ -1,29 +1,27 @@
 <?php
 	require_once '../bootstrap.php';
-	$dbc->exec('TRUNCATE users');
-	$dbc->exec('TRUNCATE ads');
-	$dbc->exec('TRUNCATE tags');
+
 
 	$users = [
                 [
                     'first_name' => 'Pablo',
                     'last_name' => 'King',
                     'email' => 'pablo@winning.com',
-                    'password' => '$2y$10$/qmZ8IRNbltJykLCsUtFf.9zgA2qJL0sh5OJuHK7og/qSENAmzz1ephp',
+                    'password' => '$2y$10$MFpN3lU9.WPZsL5.6yPijOzwTIVZdz.2psaOz0DAay2YQBb5JU6Yy',
                     'avatar_img' => 'img/pablo.jpg'
                 ],
 			    [
                     'first_name' => 'Justin',
                     'last_name' => 'Beere',
                     'email' => 'justin@codeup.rocks',
-                    'password' => '$2y$10$/qmZ8IRNbltJykLCsUtFf.9zgA2qJL0sh5OJuHK7og/qSENAmzz1ephp',
+                    'password' => '$2y$10$MFpN3lU9.WPZsL5.6yPijOzwTIVZdz.2psaOz0DAay2YQBb5JU6Yy',
                     'avatar_img' => 'img/pablo.jpg'
                 ],
 			    [
                   'first_name' => 'Meghan',
                   'last_name' => 'Ahrens',
                   'email' => 'meghan@codeup.rocks',
-                  'password' => '$2y$10$/qmZ8IRNbltJykLCsUtFf.9zgA2qJL0sh5OJuHK7og/qSENAmzz1ephp',
+                  'password' => '$2y$10$MFpN3lU9.WPZsL5.6yPijOzwTIVZdz.2psaOz0DAay2YQBb5JU6Yy',
                   'avatar_img' => 'img/pablo.jpg'
                 ]
             ];
@@ -33,14 +31,13 @@
 
 	foreach($users as $user)
 	{
-		$stmt = $dbc->prepare('INSERT INTO users (first_name, last_name, email, password, phone, bio)
-				    		   VALUES 			 (:first_name, :last_name, :email, :password, :phone, :bio);');
+		$stmt = $dbc->prepare('INSERT INTO users (first_name, last_name, email, password, avatar_img)
+				    		   VALUES 			 (:first_name, :last_name, :email, :password, :avatar_img);');
 		$stmt->bindValue(':first_name', $user['first_name'], PDO::PARAM_STR);
 		$stmt->bindValue(':last_name',  $user['last_name'],  PDO::PARAM_STR);
 		$stmt->bindValue(':email',		$user['email'],		 PDO::PARAM_STR);
 		$stmt->bindValue(':password',   $user['password'],   PDO::PARAM_STR);
-		$stmt->bindValue(':phone', 		$user['phone'],		 PDO::PARAM_STR);
-		$stmt->bindValue(':bio',		$user['bio'],		 PDO::PARAM_STR);
+		$stmt->bindValue(':avatar_img',   $user['avatar_img'],   PDO::PARAM_STR);
 		$stmt->execute();
 	}
 

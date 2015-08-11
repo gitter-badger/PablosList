@@ -9,6 +9,7 @@
     <link href="css/header.css" rel="stylesheet" type="text/css">
     <link href="css/pasta.css" rel="stylesheet" type="text/css">
 
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
     <!-- Latest compiled and minified JavaScript -->
@@ -20,8 +21,9 @@
         <!-- HEADER GOES BELOW -->
         <?php include_once '../views/partials/header.php';?>
         </section>
+
         <section>
-        <!-- PABLOS SH*T GOES HERE -->
+
         </section>
         <!-- FOOTER GOES BELOW -->
         <?php include_once '../views/partials/footer.php';?>

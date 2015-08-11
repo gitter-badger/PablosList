@@ -23,13 +23,16 @@
         <div class="form-group">
           <input type="text" class="form-control" placeholder="!search">
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="submit" class="btn btn-default">Search By Tags</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
          <!-- START AUTHENTICATED NAV VIEW -->
          <?php if (isset($_SESSION['LOGGED_IN_USER'])) { ?>
+          <li><a><?= $_SESSION['LOGGED_IN_USER'] ?></a></li>
           <li class="dropdown">
-            <a href="" class="dropdown-toggle" data-toggle="dropdown">Account<span class="caret"></span> </a>
+            <a href="" class="dropdown-toggle" data-toggle="dropdown">
+            <img alt="@j-beere" class="avatar" height="30" src="<?= $_SESSION['avatar_img'] ?>" width="30">
+            <span class="caret"></span> </a>
             <ul class="dropdown-menu" role="menu">
               <li><a href="" >Show My Listings</a></li>
               <li><a href="" >Post New Listing</a></li>
