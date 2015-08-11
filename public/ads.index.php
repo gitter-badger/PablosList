@@ -28,10 +28,20 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <style type="text/css">
-    .show-item {
-    	max-height:262px;
-    	max-width:322px;
-    }
+.show-image {
+	height:	433px;
+	width:292px;
+	padding-top: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 20px;
+}
+.show-item {
+	height:100px;
+	width:100px;
+}
+
+
     </style>
 </head>
 <body>
@@ -45,9 +55,9 @@
 			                				<a href="#">
 			                					<img src="http://ecx.images-amazon.com/images/I/71XM88dKoGL._SL1500_.jpg" alt="" class="show-item">
 			                				</a>
-			                				<div class="product-label">
+			                				<!-- <div class="product-label">
 			                					<span class="onsale">sale</span>
-			                				</div>
+			                				</div> -->
 			                				<div class="hover-overlay"></div>
 			                				<div class="product-add-to-cart">
 			                					<a href="#" class="btn btn-dark btn-md">Add to Cart</a>
@@ -89,9 +99,9 @@
 			                				<a href="#">
 			                					<img src="http://ecx.images-amazon.com/images/I/515HUViELGL.jpg" alt="" class="show-item">
 			                				</a>
-			                				<div class="product-label">
+			                				<!-- <div class="product-label">
 			                					<span class="new">new</span>
-			                				</div>
+			                				</div> -->
 			                				<div class="hover-overlay"></div>
 			                				<div class="product-add-to-cart">
 			                					<a href="#" class="btn btn-dark btn-md">Add to Cart</a>
@@ -169,11 +179,11 @@
 		                			<div class="product-item show-image">
 		                				<div class="product-img hover-1">
 			                				<a href="#">
-			                					<img src="http://ecx.images-amazon.com/images/I/A1t7hwxYzlL._UY662_.jpg" alt="" class="show-item">
+			                					<img src="http://ecx.images-amazon.com/images/I/41dn1krPyAL.jpg" alt="" class="show-item">
 			                				</a>
-			                				<div class="product-label">
+			                				<!-- <div class="product-label">
 			                					<span class="sold">sold out</span>
-			                				</div>
+			                				</div> -->
 			                				<div class="hover-overlay"></div>
 			                				<div class="product-add-to-cart">
 			                					<a href="#" class="btn btn-dark btn-md">Add to Cart</a>
@@ -210,7 +220,7 @@
 		                			<div class="product-item show-image">
 		                				<div class="product-img hover-1">
 			                				<a href="#">
-			                					<img src="http://ecx.images-amazon.com/images/I/91NXddVsrtL._SX522_.jpg" alt="" class="show-image">
+			                					<img src="http://ecx.images-amazon.com/images/I/71E-RAdTI4L._SL1500_.jpg" alt="" class="show-item">
 			                				</a>
 			                				<div class="hover-overlay"></div>
 			                				<div class="product-add-to-cart">
@@ -248,11 +258,11 @@
 		                			<div class="product-item show-image">
 		                				<div class="product-img hover-1">
 			                				<a href="#">
-			                					<img src="http://ecx.images-amazon.com/images/I/71SUUttQ0VL._SL1062_.jpg" alt="" class="show-image">
+			                					<img src="http://ecx.images-amazon.com/images/I/71CqOWllTsL._SL1500_.jpg" alt="" class="show-item">
 			                				</a>
-			                				<div class="product-label">
+			                				<!-- <div class="product-label">
 			                					<span class="onsale">sale</span>
-			                				</div>
+			                				</div> -->
 			                				<div class="hover-overlay"></div>
 			                				<div class="product-add-to-cart">
 			                					<a href="#" class="btn btn-dark btn-md">Add to Cart</a>
@@ -289,10 +299,10 @@
 		                		</div>
 
 		                		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 product product-grid">
-		                			<<div class="product-item show-image">
+		                			<div class="product-item show-image">
 		                				<div class="product-img hover-1">
 			                				<a href="#">
-			                					<img src="http://ecx.images-amazon.com/images/I/61af3Wu7moL._SL1100_.jpg" alt="" class="show-image">
+			                					<img src="http://ecx.images-amazon.com/images/I/61af3Wu7moL._SL1100_.jpg" alt="" class="show-item">
 			                				</a>
 			                				<div class="hover-overlay"></div>
 			                				<div class="product-add-to-cart">
@@ -333,7 +343,7 @@
 		                			<div class="product-item show-image">
 		                				<div class="product-img hover-1">
 			                				<a href="#">
-			                					<img src="http://ecx.images-amazon.com/images/I/517AsEET0oL.jpg" alt="">
+			                					<img src="http://ecx.images-amazon.com/images/I/517AsEET0oL.jpg" alt="" class="show-item">
 			                				</a>
 			                				<div class="hover-overlay"></div>
 			                				<div class="product-add-to-cart">
@@ -371,7 +381,7 @@
 		                			<div class="product-item show-image">
 		                				<div class="product-img hover-1">
 			                				<a href="#">
-			                					<img src="http://ecx.images-amazon.com/images/I/71E-RAdTI4L._SL1500_.jpg" alt="" class="show-image">
+			                					<img src="http://ecx.images-amazon.com/images/I/91NXddVsrtL._SX522_.jpg" alt="" class="show-item">
 			                				</a>
 			                				<div class="hover-overlay"></div>
 			                				<div class="product-add-to-cart">
@@ -412,7 +422,7 @@
 		                			<div class="product-item show-image">
 		                				<div class="product-img hover-1">
 			                				<a href="#">
-			                					<img src="http://ecx.images-amazon.com/images/I/61snRD50HzL._SL1000_.jpg" alt="" class="show-image">
+			                					<img src="http://ecx.images-amazon.com/images/I/61snRD50HzL._SL1000_.jpg" alt="" class="show-item">
 			                				</a>
 			                				<div class="hover-overlay"></div>
 			                				<div class="product-add-to-cart">
@@ -453,7 +463,7 @@
 		                			<div class="product-item show-image">
 		                				<div class="product-img hover-1">
 			                				<a href="#">
-			                					<img src="http://ecx.images-amazon.com/images/I/41hivUTsQYL.jpg" alt="" class="show-image">
+			                					<img src="http://ecx.images-amazon.com/images/I/41hivUTsQYL.jpg" alt="" class="show-item">
 			                				</a>
 			                				<div class="hover-overlay"></div>
 			                				<div class="product-add-to-cart">
@@ -491,7 +501,7 @@
 		                			<div class="product-item show-image">
 		                				<div class="product-img hover-1">
 			                				<a href="#">
-			                					<img src="http://ecx.images-amazon.com/images/I/71CqOWllTsL._SL1500_.jpg" alt="" class="show-image">
+			                					<img src="http://ecx.images-amazon.com/images/I/71SUUttQ0VL._SL1062_.jpg" alt="" class="show-item">
 			                				</a>
 			                				<div class="hover-overlay"></div>
 			                				<div class="product-add-to-cart">
