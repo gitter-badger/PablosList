@@ -18,20 +18,19 @@ class Auth
         $results = $stmt->fetch(PDO::FETCH_ASSOC);
 
         $userId  = $results['user_id'];
-        $userPassword = $results['password'];
+        $passwordHash = $results['password'];
+		$attemptLog = new Log();
 
-		if(password_verify($password, $userPassword))
+		if(password_verify($password, $passwordHash))
         {
-        	$_SESSION['LOGGED_IN_USER'] = $email;
-            $_SESSION['user_id'] = $userId;
-
-        	Log::info("User: $email logged in.");
-
+        	$attemptLog->info("User: $email logged in.");
+			$_SESSION['LOGGED_IN_USER'] = $email;
+			$_SESSION['user_id'] = $userId;
             return true;
         }
         else
         {
-        	Log::error("User: $email failed to log in");
+        	$attemptLog->error("User: $email failed to log in");
                 throw new Exception('No account was found with the  email and password.');
             return false;
         }
@@ -51,7 +50,8 @@ class Auth
 
     static function logoutUser()
     {
-        Log::info($_SESSION['LOGGED_IN_USER'] . ' logged out.');
+        $closedSessions = new Log();
+		$closedSessions->info($_SESSION['LOGGED_IN_USER'] . ' logged out.');
         $_SESSION = array();
 
         if(ini_get("session.use_cookies"))

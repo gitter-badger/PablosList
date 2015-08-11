@@ -10,24 +10,21 @@
                     'last_name' => 'King',
                     'email' => 'pablo@winning.com',
                     'password' => '$2y$10$/qmZ8IRNbltJykLCsUtFf.9zgA2qJL0sh5OJuHK7og/qSENAmzz1ephp',
-                    'phone' => '12101234567',
-                    'bio' => 'Win Here, Win There, Win Win Everywhere.'
+                    'avatar_img' => 'img/pablo.jpg'
                 ],
 			    [
                     'first_name' => 'Justin',
                     'last_name' => 'Beere',
                     'email' => 'justin@codeup.rocks',
                     'password' => '$2y$10$/qmZ8IRNbltJykLCsUtFf.9zgA2qJL0sh5OJuHK7og/qSENAmzz1ephp',
-                    'phone' => '12101234567',
-                    'bio' => 'What is love, Pablo don\'t hurt me...'
+                    'avatar_img' => 'img/pablo.jpg'
                 ],
 			    [
                   'first_name' => 'Meghan',
                   'last_name' => 'Ahrens',
                   'email' => 'meghan@codeup.rocks',
                   'password' => '$2y$10$/qmZ8IRNbltJykLCsUtFf.9zgA2qJL0sh5OJuHK7og/qSENAmzz1ephp',
-                  'phone' => '12101234567',
-                  'bio' => ''
+                  'avatar_img' => 'img/pablo.jpg'
                 ]
             ];
 

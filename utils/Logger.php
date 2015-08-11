@@ -4,31 +4,11 @@ class Log
 {
     protected $filename;
     protected $handle;
+    protected $prefix;
 
     public function __construct($prefix = 'log')
     {
-        $this->setfilename($prefix);
-        $this->handle = fopen($this->filename, 'a');
-
-    }
-
-    protected function setfilename($prefix)
-    {
-        if (is_string($prefix)) {
-            $filename = $prefix.'-'.date('Y-m-d').".log";
-            if ( touch($filename) && is_writable($filename) ){
-                $this->filename = $filename;
-            } else {
-                die;
-            }
-        } else {
-            die;
-        }
-    }
-
-    public function getfilename()
-    {
-        return $this->filename;
+        $this->prefix = $prefix."-";
     }
 
     public function __destruct()
@@ -38,11 +18,16 @@ class Log
         }
     }
 
-    public function logMessage($logLevel, $message)
+    public function logMessage($level, $message)
     {
-        fwrite($this->handle, '['.$logLevel.'] '.$message.PHP_EOL);
+        date_default_timezone_set('America/Chicago');
+
+		$filename = $this->prefix.date("Y-m-d").".log";
+		$date = date('Y-m-d H:i:s');
+		$handle = fopen($filename, 'a+');
+		fwrite($handle, "[{$level}]: {$message} Timestamp: {$date}\n");
+		fclose($handle);
     }
-    // Methods info() and error() that will take in a message and forward it on to logMessage()
     public function info($message)
     {
         $logLevel = "INFO";
