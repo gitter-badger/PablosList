@@ -10,13 +10,13 @@ class Auth
 
 	public static function attempt($email, $password, $dbc)
     {
-        $query = 'SELECT user_id, password FROM users WHERE email = :email;';
+        $query = 'SELECT user_id, password, avatar_img FROM users WHERE email = :email;';
         $stmt  = $dbc->prepare($query);
         $stmt->bindValue(':email', $email, PDO::PARAM_STR);
         $stmt->execute();
 
         $results = $stmt->fetch(PDO::FETCH_ASSOC);
-
+		$userAvatarPath = $results['avatar_img'];
         $userId  = $results['user_id'];
         $passwordHash = $results['password'];
 		$attemptLog = new Log();
@@ -26,6 +26,7 @@ class Auth
         	$attemptLog->info("User: $email logged in.");
 			$_SESSION['LOGGED_IN_USER'] = $email;
 			$_SESSION['user_id'] = $userId;
+			$_SESSION['avatar_img'] = $userAvatarPath;
             return true;
         }
         else
