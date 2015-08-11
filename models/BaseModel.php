@@ -23,7 +23,6 @@ class Model {
     {
         if (!self::$dbc)
         {
-            require_once "dbconfig.php";
             // @TODO: Connect to database
             self::$dbc = new PDO('mysql:host='.DB_HOST.';dbname='.DB_NAME, DB_USER, DB_PASS);
             self::$dbc->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -46,10 +45,10 @@ class Model {
         return self::$dbTables;
     }
 
-    public function getColumnNames($table)
+    public function getColumnNames()
     {
         $columnStmt = self::$dbc->query("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS
-        WHERE TABLE_NAME = '$table'");
+        WHERE TABLE_NAME = '".static::$table."'");
         $columnsArray = $columnStmt->fetchAll();
         foreach ($columnsArray as $value) {
             $this->columnNames[]= $value['COLUMN_NAME'];
@@ -127,7 +126,7 @@ class Model {
         $data = self::all();
         array_filter( function(){
 
-        })
+        });
     }
 }
 ?>

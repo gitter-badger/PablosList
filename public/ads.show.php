@@ -13,32 +13,18 @@
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-<div class="products-show-more-savers-grid products-show-more-grid">
-<a href="/cheyanne123456"><img alt="cheyanne123456" class="avatar-image avatar-x45 " src="https://cw-fs-2.wnlimg.com/user/avatar/9513377/x45.jpg?fce8724797cb21bee9a043118969601b"></a>
-<a href="/fairtwinmjf"><img alt="fairtwinmjf" class="avatar-image avatar-x45 " src="https://cw-fs-2.wnlimg.com/user/avatar/7508942/x45.jpg?d48ffb182d13d03fd323d95c008bb28f"></a>
-<a href="/spritzqueen"><img alt="spritzqueen" class="avatar-image avatar-x45 " src="https://cw-fs-0.wnlimg.com/user/avatar/13120415/x45.jpg?baef1eaf7e108c088f9b17d5a4edc2a3"></a>
-<a href="/angiehernandez"><img alt="angiehernandez" class="avatar-image avatar-x45 " src="https://cw-fs-2.wnlimg.com/user/avatar/5503127/x45.jpg?f34b44b59eea429cc736fb5c7b81de56"></a>
-<a href="/smith789"><img alt="smith789" class="avatar-image avatar-x45 " src="https://cw-fs-1.wnlimg.com/user/avatar/6986054/x45.jpg?5c6bfc67a091618aa2879acd3549521f"></a>
-<a href="/hinky123"><img alt="hinky123" class="avatar-image avatar-x45 " src="https://assets-fs.wnlimg.com/assets/default_avatar_x45-01c38334b1d6b8050ec6470046a709a6.jpg"></a>
-<a href="/kauai_girl95"><img alt="kauai_girl95" class="avatar-image avatar-x45 " src="https://cw-fs-3.wnlimg.com/user/avatar/8808767/x45.jpg?b388e5992be48b84bf4f4fdf44b9bc84"></a>
-<a href="/polkadot1414"><img alt="polkadot1414" class="avatar-image avatar-x45 " src="https://cw-fs-1.wnlimg.com/user/avatar/11638681/x45.jpg?66dada31d90bb5e3ee1e69ca3af06bd3"></a>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-</div>
-</div>
+</head>
+</body>
 <div class="product-container-inner product-attribution-show" itemscope="" itemtype="http://schema.org/Product">
-<div class="products-show-title">
-<div class="products-show-title-inner-container"><h1 data-attribute="name" data-html-attrs="{&quot;maxlength&quot;:140}" data-object="product" data-type="input" data-url="/p/8362317"><span itemprop="name">
-Yellow Rubber Duck Cabochon 4pcs Very Cute by qrhinestones on Etsy</span></h1><div class="best-in-place-edit-icon-container">
-<img alt="Edit-icon-clear-x15" class="best-in-place-edit-icon" src="https://assets-fs.wnlimg.com/assets/edit-icon-clear-x15-89ebdc3281e846f81ca2cb8cacf0ecef.png">
-</div>
-</div>
-</div>
+  <div class="products-show-title">
+    <div class="products-show-title-inner-container">
+        <h1 data-attribute="name" data-html-attrs="{&quot;maxlength&quot;:140}" data-object="product" data-type="input" data-url="/p/8362317"><span itemprop="name">
+Yellow Rubber Duck Cabochon 4pcs Very Cute by qrhinestones on Etsy</span></h1>
+    <div class="best-in-place-edit-icon-container">
+        <img alt="Edit-icon-clear-x15" class="best-in-place-edit-icon" src="https://assets-fs.wnlimg.com/assets/edit-icon-clear-x15-89ebdc3281e846f81ca2cb8cacf0ecef.png">
+    </div>
+    </div>
+  </div>
 <div class="products-show-poster" data-poster="wonderlantis">
 <div class="products-show-poster-details">
 From
@@ -103,9 +89,5 @@ From
 
 </div>
 </div>
-
-</div>
-</div>
+</body>
 </html>
-=======
->>>>>>> 49fc69d22ec5208393f4c0fa1f284e12201f7679

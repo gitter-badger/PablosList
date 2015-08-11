@@ -2,7 +2,9 @@
 require_once 'BaseModel.php';
 class User extends Model {
 
-    protected static $table = 'contacts';
+    protected static $table = 'users';
+	protected static $id    = 'user_id';
+
     public static function find($id)
     {
         // Get connection to the database
