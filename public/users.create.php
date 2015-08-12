@@ -18,8 +18,8 @@
 		$new_user->last_name  = Input::get('last_name');
 		$new_user->email      = Input::get('email'); // needs to check if already exists in _db; real time update would be nice; can be done with exceptions
 		$new_user->password   = $hashed_password;
-		$new_user->phone      = Input::get('phone');
-		$new_user->bio  	  = Input::get('bio');
+		$new_user->avatar_img = Input::get('avatar_img');
+
 		$new_user->save();
 	}
 

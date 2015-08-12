@@ -3,7 +3,8 @@ class Model {
 
     protected static $dbc;
     protected static $table;
-    public $attributes = array();
+    protected static $id;
+    private $attributes = array();
     protected $columnNames = array();
     protected static $dbTables = array();
 
@@ -13,13 +14,13 @@ class Model {
     public function __construct()
     {
          self::dbConnect();
-         self::setTables();
+        //  self::setTables();
     }
 
     /*
      * Connect to the DB
      */
-    private static function dbConnect()
+    protected static function dbConnect()
     {
         if (!self::$dbc)
         {
@@ -85,24 +86,104 @@ class Model {
     /*
      * Persist the object to the database
      */
-    public function save()
-    {
-        // @TODO: Ensure there are attributes before attempting to save
-            $attributes = [];
-            foreach ($this->columnNames as $value) {
-                $attributes[]= $value;
-            }
-            print_r(array_diff($attributes, $this->attributes));
-        // @TODO: Perform the proper action - if the `id` is set, this is an update, if not it is a insert
+     public function save()
+     {
+         $columns = self::$dbc->query("SELECT `COLUMN_NAME`, `DATA_TYPE`, `COLUMN_KEY`
+                                        FROM `INFORMATION_SCHEMA`.`COLUMNS`
+                                        WHERE `TABLE_SCHEMA` = '" . DB_NAME . "' AND `TABLE_NAME` = '" . static::$table . "';")->fetchAll(PDO::FETCH_ASSOC);
+         if(!empty($this->attributes))
+         {
+             isset($this->attributes[static::$id]) ? $this->update($columns) : $this->insert($columns);
+         }
+     }
 
-        // @TODO: Ensure that update is properly handled with the id key
+     protected function update($columns)
+     {
+         $numItems = count($columns);
+         $i 		  = 0;
+         $append   = '';
+         $query 	  = "UPDATE ".static::$table." SET";
 
-        // @TODO: After insert, add the id back to the attributes array so the object can properly reflect the id
+         foreach($columns as $column)
+         {
+             if($column['COLUMN_KEY'] != 'PRI')
+             {
+                 /**
+                 *Assumes the existence via - 1 of one int type element of $columns...
+                 */
+                 (++$i == $numItems - 1) ? $query .= " " .$column['COLUMN_NAME']." = :".$column['COLUMN_NAME'] : $query.= " ". $column['COLUMN_NAME']. " = :".$column['COLUMN_NAME'].",";
+             }
+             else
+             {
+                 $append = " WHERE ".$column['COLUMN_NAME']. " = :".$column['COLUMN_NAME'];
+             }
 
-        // @TODO: You will need to iterate through all the attributes to build the prepared query
+         }
 
-        // @TODO: Use prepared statements to ensure data security
-    }
+         $query .= $append;
+
+         $stmt = self::$dbc->prepare($query);
+
+         foreach($this->attributes as $attribute => $value)
+         {
+             $type = (is_numeric($value)) ? PDO::PARAM_INT : PDO::PARAM_STR;
+             $stmt->bindValue(":{$attribute}", $value, $type);
+         }
+
+         $stmt->execute();
+
+
+     }
+
+     protected function insert($columns)
+     {
+         $query	  = 'INSERT INTO ' . static::$table . ' (';
+         $values   = 'VALUES (';
+         $i		  = 0;
+         $numItems = count($columns);
+         //var_dump($numItems);
+
+         foreach($columns as $column)
+         {
+             if($column['COLUMN_KEY'] != 'PRI')
+             {
+                 $query .= (++$i == $numItems - 1) ? $column['COLUMN_NAME'] . ') ' : $column['COLUMN_NAME'] . ', ';
+
+                 if($column['DATA_TYPE'] != 'date')
+                 {
+
+                     $values .= ($i == $numItems - 1) ? ':' . $column['COLUMN_NAME'] . ');' : ':' . $column['COLUMN_NAME'] . ', ';
+                 }
+                 else
+                 {
+                     $values .= ($i == $numItems - 1) ? 'cast(:' . $column['COLUMN_NAME'] . ' as DATE));' : ' cast(:' . $column['COLUMN_NAME'] . ' as DATE), ';
+                 }
+             }
+
+         }
+
+         $query .= $values;
+
+         $stmt = self::$dbc->prepare($query);
+         print($query);
+         print_r($this->attributes);
+
+         foreach($this->attributes as $attribute => $value)
+         {
+             $type = (is_numeric($value)) ? PDO::PARAM_INT : PDO::PARAM_STR;
+             $stmt->bindValue(":{$attribute}", $value, $type);
+         }
+
+         $stmt->execute();
+
+         $stmt = self::$dbc->prepare("SELECT " . static::$id . " FROM " . static::$table . " ORDER BY " . static::$id . " DESC LIMIT 1;");
+
+         $stmt->execute();
+
+         $data = $stmt->fetch(PDO::FETCH_ASSOC);
+         $this->attributes[static::$id] = $data[static::$id];
+
+     }
     /*
      * Find a record based on an id
      */
