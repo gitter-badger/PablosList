@@ -1,14 +1,14 @@
 <?php
 	require_once 'BaseModel.php';
-	$new_ad = new Ad();
-	$new_ad->tags         = Input::get('tags');
-	$new_ad->title        = Input::get('title');
-	$new_ad->price        = (float)Input::get('price');
-	$new_ad->img_url      = $filename;
-	$new_ad->description  = Input::get('description');
-	$new_ad->date_created = date('Y-m-d');
-	$new_ad->user_id      = (int)$_SESSION['user_id'];
-	$new_ad->save();
+	// $new_ad = new Ad();
+	// $new_ad->tags         = Input::get('tags');
+	// $new_ad->title        = Input::get('title');
+	// $new_ad->price        = (float)Input::get('price');
+	// $new_ad->img_url      = $filename;
+	// $new_ad->description  = Input::get('description');
+	// $new_ad->date_created = date('Y-m-d');
+	// $new_ad->user_id      = (int)$_SESSION['user_id'];
+	// $new_ad->save();
 	class Ad extends Model
 	{
 		protected static $table = 'ads';

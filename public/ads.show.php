@@ -1,3 +1,7 @@
+<?php
+
+require_once '../bootstrap.php';
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -48,7 +52,7 @@
         <h1 class="product-title">ladies bag</h1>
 
           <span class="price">
-     
+
         <ins>
           <span class="ammount">$299.99</span>
         </ins>
