@@ -39,24 +39,21 @@
   <div class="container relative">
     <div class="row">
 
-      <div class="col-md-6">
-        <img src="http://deothemes.com/envato/amadea/html/img/product_large_1.jpg" alt="" draggable="false">
-
-
-
-
+       <div class="col-md-6">
+      <img src="http://deothemes.com/envato/amadea/html/img/product_large_1.jpg" alt="" draggable="false">
       </div>
       <!-- end col -->
 
       <div class="col-md-6 product-description-wrap">
         <h1 class="product-title">ladies bag</h1>
-       
+
           <span class="price">
      
         <ins>
           <span class="ammount">$299.99</span>
         </ins>
           </span>
+
         <p class="product-description">Amadea Shop is a very slick and clean e-commerce template with endless possibilities. Creating an awesome clothes store with this Theme is easy than you can imagine. Grab this theme now.</p>
         <!--<div class="color-swatches clearfix">
           <h6>Color:</h6>
@@ -215,7 +212,7 @@
   </div>
   <!-- end container -->
 </section>
-        
+
 
         <!-- FOOTER GOES BELOW -->
         <?php include_once '../views/partials/footer.php';?>
