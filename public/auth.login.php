@@ -1,6 +1,6 @@
 <?php
     require_once '../bootstrap.php';
-    session_start();
+    // session_start();
 
     if(Input::has('login_attempt'))
     {

@@ -1,3 +1,28 @@
+<?php
+ require_once '../bootstrap.php';
+
+$adCount = $dbc->query('SELECT count(*) FROM ads')->fetchColumn();
+$limit = 6;
+$id = Input::has('id');
+$pageCount = ceil($adCount/$limit);
+
+if(Input::has('page')) {
+	$offset = ($_GET['page'] - 1) * $limit;
+	$page = $_GET['page'];
+} else {
+	$offset = 0;
+	$page = 1;
+}
+
+$stmt = $dbc->prepare("SELECT * FROM ads ORDER BY date_created DESC LIMIT :limit OFFSET :offset");
+$stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+$stmt->bindValue(':offset', $offset, PDO:: PARAM_INT);
+$stmt->execute();
+
+$ads = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+print_r($stmt->fetch(PDO::FETCH_ASSOC));
+?>
 <html>
 
 <head>
@@ -36,9 +61,9 @@
 	padding-right: 20px;
 	padding-bottom: 20px;
 }
-.show-item {
-	height:100px;
-	width:100px;
+img.show-item {
+	height:322px;
+	width:262.484px;
 }
 
 
@@ -49,18 +74,22 @@
 							<div class="container-relative">
 								<div class="col-md-9 right">
 								<div class="row shop-catalogue grid-view left">
+			                					<?php foreach($ads as $ad) : ?>
 					            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 product product-grid">
 			            			<div class="product-item show-image">
 			            				<div class="product-img hover-1">
 			                				<a href="#">
-			                					<img src="http://ecx.images-amazon.com/images/I/71XM88dKoGL._SL1500_.jpg" alt="" class="show-item">
+													
+														
+														
+														
+														
+																											
+			                					<img src="<?= $ad['img_url']; ?>" alt="" class="show-item" height="433" width="292.484">
 			                				</a>
-			                				<!-- <div class="product-label">
-			                					<span class="onsale">sale</span>
-			                				</div> -->
-			                				<div class="hover-overlay"></div>
+			                							                				<div class="hover-overlay"></div>
 			                				<div class="product-add-to-cart">
-			                					<a href="#" class="btn btn-dark btn-md">Add to Cart</a>
+			                					<a href="#" class="btn btn-dark btn-md">Show Listing Page</a>
 			                				</div>
 			                				<div class="product-add-to-wishlist">
 			                					<a href="#"><i class="fa fa-heart"></i></a>
@@ -68,484 +97,39 @@
 			            				</div>
 			            				<div class="product-details">
 			            					<h3>
-			            						<a class="product-title" href="single-product.html">Black Autumn Coat</a>
+			            						<a class="product-title" href="single-product.html"><?= $ad['title'];?></a>
 			            					</h3>
 			            					<h5 class="category">
 			            						<a href="catalogue-grid.html">Men</a>
 			            					</h5>
 			            				</div>
 			            				<span class="price">
-			            					<del>
-			            						<span>$1499.00</span>
-			            					</del>
 			            					<ins>
-			            						<span class="ammount">$1250.99</span>
+			            						<span class="ammount"><?= $ad['price']; ?></span>
 			            					</ins>
-			            					<span class="rating">
-			            						<a href="#">3 Reviews</a>
-			            					</span>
 			            				</span>
-			            				<p class="product-description">Amadea Shop is a very slick and clean e-commerce template with endless possibilities. Creating an awesome clothes store with this Theme is easy than you can imagine. Grab this theme now.</p>
+			            				<p class="product-description"><?= $ad['tags']; ?></p>
 			            				<a href="#" class="btn btn-dark btn-md left">Add to Cart</a>
 			            				<div class="icon-add-to-wishlist">
 			            					<a href="#"><i class="fa fa-heart"></i></a>
 			            				</div>
 			            			</div>
 			            		</div>
+												<?php endforeach ?>
 
-			            		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 product product-grid">
-			            			<div class="product-item show-image">
-			            				<div class="product-img hover-1">
-			                				<a href="#">
-			                					<img src="http://ecx.images-amazon.com/images/I/515HUViELGL.jpg" alt="" class="show-item">
-			                				</a>
-			                				<!-- <div class="product-label">
-			                					<span class="new">new</span>
-			                				</div> -->
-			                				<div class="hover-overlay"></div>
-			                				<div class="product-add-to-cart">
-			                					<a href="#" class="btn btn-dark btn-md">Add to Cart</a>
-			                				</div>
-			                				<div class="product-add-to-wishlist">
-			                					<a href="#"><i class="fa fa-heart"></i></a>
-			                				</div>
-			            				</div>
-			            				<div class="product-details">
-			            					<h3>
-			            						<a class="product-title" href="single-product.html">Ladies Dark Brown Bag</a>
-			            					</h3>
-			            					<h5 class="category">
-			            						<a href="catalogue-grid.html">Accessories</a>
-			            					</h5>
-			            				</div>
-			            				<span class="price">
-			            					<del>
-			            						<span>$239.00</span>
-			            					</del>
-			            					<ins>
-			            						<span class="ammount">$189.99</span>
-			            					</ins>
-			            					<span class="rating">
-			            						<a href="#">3 Reviews</a>
-			            					</span>
-			            				</span>
-			            				<p class="product-description">Amadea Shop is a very slick and clean e-commerce template with endless possibilities. Creating an awesome clothes store with this Theme is easy than you can imagine. Grab this theme now.</p>
-			            				<a href="#" class="btn btn-dark btn-md left">Add to Cart</a>
-			            				<div class="icon-add-to-wishlist">
-			            					<a href="#"><i class="fa fa-heart"></i></a>
-			            				</div>
-			            			</div>
-			            		</div>
+							<?php if($page > 1) { ?>
+								<a type="button" class="btn btn-primary" href="ads.index.php?page=<?= ($page - 1) ?>">Previous page</a>
+							<?php } ?>
+							
+							<?php if ($page < $pageCount) { ?>
+							 <a type="button" class="btn btn-primary" href="ads.index.php?page=<?= ($page + 1) ?>">Next Page</a>
+							 <?php } ?>
+							 </div>
+							</div>
+						</div>
+	
 
-			            		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 product product-grid">
-			            			<div class="product-item show-image">
-			            				<div class="product-img hover-1">
-			                				<a href="#">
-			                					<img src="http://ecx.images-amazon.com/images/I/41pSZfZBRYL.jpg" alt="" class="show-item">
-			                				</a>
-			                				<div class="hover-overlay"></div>
-			                				<div class="product-add-to-cart">
-			                					<a href="#" class="btn btn-dark btn-md">Add to Cart</a>
-			                				</div>
-			                				<div class="product-add-to-wishlist">
-			                					<a href="#"><i class="fa fa-heart"></i></a>
-			                				</div>
-			            				</div>
-			            				<div class="product-details">
-			            					<h3>
-			            						<a class="product-title" href="single-product.html">Classic Watch</a>
-			            					</h3>
-			            					<h5 class="category">
-			            						<a href="catalogue-grid.html">Accessories</a>
-			            					</h5>
-			            				</div>
-			            				<span class="price">
-			            					<ins>
-			            						<span class="ammount">$299.00</span>
-			            					</ins>
-			            					<span class="rating">
-			            						<a href="#">3 Reviews</a>
-			            					</span>
-			            				</span>
-			            				<p class="product-description">Amadea Shop is a very slick and clean e-commerce template with endless possibilities. Creating an awesome clothes store with this Theme is easy than you can imagine. Grab this theme now.</p>
-			            				<a href="#" class="btn btn-dark btn-md left">Add to Cart</a>
-			            				<div class="icon-add-to-wishlist">
-			            					<a href="#"><i class="fa fa-heart"></i></a>
-			            				</div>
-			            			</div>
-			            		</div>
-
-			            		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 product product-grid">
-		                			<div class="product-item show-image">
-		                				<div class="product-img hover-1">
-			                				<a href="#">
-			                					<img src="http://ecx.images-amazon.com/images/I/41dn1krPyAL.jpg" alt="" class="show-item">
-			                				</a>
-			                				<!-- <div class="product-label">
-			                					<span class="sold">sold out</span>
-			                				</div> -->
-			                				<div class="hover-overlay"></div>
-			                				<div class="product-add-to-cart">
-			                					<a href="#" class="btn btn-dark btn-md">Add to Cart</a>
-			                				</div>
-			                				<div class="product-add-to-wishlist">
-			                					<a href="#"><i class="fa fa-heart"></i></a>
-			                				</div>
-		                				</div>
-		                				<div class="product-details">
-		                					<h3>
-		                						<a class="product-title" href="single-product.html">Floral Dress</a>
-		                					</h3>
-		                					<h5 class="category">
-		                						<a href="catalogue-grid.html">Women</a>
-		                					</h5>
-		                				</div>
-		                				<span class="price">
-		                					<ins>
-		                						<span class="ammount">$289.99</span>
-		                					</ins>
-		                					<span class="rating">
-		                						<a href="#">3 Reviews</a>
-		                					</span>
-		                				</span>
-		                				<p class="product-description">Amadea Shop is a very slick and clean e-commerce template with endless possibilities. Creating an awesome clothes store with this Theme is easy than you can imagine. Grab this theme now.</p>
-		                				<a href="#" class="btn btn-dark btn-md left">Add to Cart</a>
-		                				<div class="icon-add-to-wishlist">
-		                					<a href="#"><i class="fa fa-heart"></i></a>
-		                				</div>
-		                			</div>
-		                		</div>
-
-		                		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 product product-grid">
-		                			<div class="product-item show-image">
-		                				<div class="product-img hover-1">
-			                				<a href="#">
-			                					<img src="http://ecx.images-amazon.com/images/I/71E-RAdTI4L._SL1500_.jpg" alt="" class="show-item">
-			                				</a>
-			                				<div class="hover-overlay"></div>
-			                				<div class="product-add-to-cart">
-			                					<a href="#" class="btn btn-dark btn-md">Add to Cart</a>
-			                				</div>
-			                				<div class="product-add-to-wishlist">
-			                					<a href="#"><i class="fa fa-heart"></i></a>
-			                				</div>
-		                				</div>
-		                				<div class="product-details">
-		                					<h3>
-		                						<a class="product-title" href="single-product.html">Leather Purse</a>
-		                					</h3>
-		                					<h5 class="category">
-		                						<a href="catalogue-grid.html">Accessories</a>
-		                					</h5>
-		                				</div>
-		                				<span class="price">
-		                					<ins>
-		                						<span class="ammount">$150.99</span>
-		                					</ins>
-		                					<span class="rating">
-		                						<a href="#">3 Reviews</a>
-		                					</span>
-		                				</span>
-		                				<p class="product-description">Amadea Shop is a very slick and clean e-commerce template with endless possibilities. Creating an awesome clothes store with this Theme is easy than you can imagine. Grab this theme now.</p>
-		                				<a href="#" class="btn btn-dark btn-md left">Add to Cart</a>
-		                				<div class="icon-add-to-wishlist">
-		                					<a href="#"><i class="fa fa-heart"></i></a>
-		                				</div>
-		                			</div>
-		                		</div>
-
-		                		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 product product-grid">
-		                			<div class="product-item show-image">
-		                				<div class="product-img hover-1">
-			                				<a href="#">
-			                					<img src="http://ecx.images-amazon.com/images/I/71CqOWllTsL._SL1500_.jpg" alt="" class="show-item">
-			                				</a>
-			                				<!-- <div class="product-label">
-			                					<span class="onsale">sale</span>
-			                				</div> -->
-			                				<div class="hover-overlay"></div>
-			                				<div class="product-add-to-cart">
-			                					<a href="#" class="btn btn-dark btn-md">Add to Cart</a>
-			                				</div>
-			                				<div class="product-add-to-wishlist">
-			                					<a href="#"><i class="fa fa-heart"></i></a>
-			                				</div>
-		                				</div>
-		                				<div class="product-details">
-		                					<h3>
-		                						<a class="product-title" href="single-product.html">Cotton Sweater</a>
-		                					</h3>
-		                					<h5 class="category">
-		                						<a href="catalogue-grid.html">Men</a>
-		                					</h5>
-		                				</div>
-		                				<span class="price">
-		                					<del>
-		                						<span>$399.00</span>
-		                					</del>
-		                					<ins>
-		                						<span class="ammount">$150.99</span>
-		                					</ins>
-		                					<span class="rating">
-		                						<a href="#">3 Reviews</a>
-		                					</span>
-		                				</span>
-		                				<p class="product-description">Amadea Shop is a very slick and clean e-commerce template with endless possibilities. Creating an awesome clothes store with this Theme is easy than you can imagine. Grab this theme now.</p>
-		                				<a href="#" class="btn btn-dark btn-md left">Add to Cart</a>
-		                				<div class="icon-add-to-wishlist">
-		                					<a href="#"><i class="fa fa-heart"></i></a>
-		                				</div>
-		                			</div>
-		                		</div>
-
-		                		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 product product-grid">
-		                			<div class="product-item show-image">
-		                				<div class="product-img hover-1">
-			                				<a href="#">
-			                					<img src="http://ecx.images-amazon.com/images/I/61af3Wu7moL._SL1100_.jpg" alt="" class="show-item">
-			                				</a>
-			                				<div class="hover-overlay"></div>
-			                				<div class="product-add-to-cart">
-			                					<a href="#" class="btn btn-dark btn-md">Add to Cart</a>
-			                				</div>
-			                				<div class="product-add-to-wishlist">
-			                					<a href="#"><i class="fa fa-heart"></i></a>
-			                				</div>
-		                				</div>
-		                				<div class="product-details">
-		                					<h3>
-		                						<a class="product-title" href="single-product.html">Sequin Summer Suit</a>
-		                					</h3>
-		                					<h5 class="category">
-		                						<a href="catalogue-grid.html">Women</a>
-		                					</h5>
-		                				</div>
-		                				<span class="price">
-		                					<del>
-		                						<span>$250.00</span>
-		                					</del>
-		                					<ins>
-		                						<span class="ammount">$189.00</span>
-		                					</ins>
-		                					<span class="rating">
-		                						<a href="#">3 Reviews</a>
-		                					</span>
-		                				</span>
-		                				<p class="product-description">Amadea Shop is a very slick and clean e-commerce template with endless possibilities. Creating an awesome clothes store with this Theme is easy than you can imagine. Grab this theme now.</p>
-		                				<a href="#" class="btn btn-dark btn-md left">Add to Cart</a>
-		                				<div class="icon-add-to-wishlist">
-		                					<a href="#"><i class="fa fa-heart"></i></a>
-		                				</div>
-		                			</div>
-		                		</div>
-
-		                		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 product product-grid">
-		                			<div class="product-item show-image">
-		                				<div class="product-img hover-1">
-			                				<a href="#">
-			                					<img src="http://ecx.images-amazon.com/images/I/517AsEET0oL.jpg" alt="" class="show-item">
-			                				</a>
-			                				<div class="hover-overlay"></div>
-			                				<div class="product-add-to-cart">
-			                					<a href="#" class="btn btn-dark btn-md">Add to Cart</a>
-			                				</div>
-			                				<div class="product-add-to-wishlist">
-			                					<a href="#"><i class="fa fa-heart"></i></a>
-			                				</div>
-		                				</div>
-		                				<div class="product-details">
-		                					<h3>
-		                						<a class="product-title" href="single-product.html">Classic Shoes</a>
-		                					</h3>
-		                					<h5 class="category">
-		                						<a href="catalogue-grid.html">Shoes</a>
-		                					</h5>
-		                				</div>
-		                				<span class="price">
-		                					<ins>
-		                						<span class="ammount">$612.00</span>
-		                					</ins>
-		                					<span class="rating">
-		                						<a href="#">3 Reviews</a>
-		                					</span>
-		                				</span>
-		                				<p class="product-description">Amadea Shop is a very slick and clean e-commerce template with endless possibilities. Creating an awesome clothes store with this Theme is easy than you can imagine. Grab this theme now.</p>
-		                				<a href="#" class="btn btn-dark btn-md left">Add to Cart</a>
-		                				<div class="icon-add-to-wishlist">
-		                					<a href="#"><i class="fa fa-heart"></i></a>
-		                				</div>
-		                			</div>
-		                		</div>
-
-		                		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 product product-grid">
-		                			<div class="product-item show-image">
-		                				<div class="product-img hover-1">
-			                				<a href="#">
-			                					<img src="http://ecx.images-amazon.com/images/I/91NXddVsrtL._SX522_.jpg" alt="" class="show-item">
-			                				</a>
-			                				<div class="hover-overlay"></div>
-			                				<div class="product-add-to-cart">
-			                					<a href="#" class="btn btn-dark btn-md">Add to Cart</a>
-			                				</div>
-			                				<div class="product-add-to-wishlist">
-			                					<a href="#"><i class="fa fa-heart"></i></a>
-			                				</div>
-		                				</div>
-		                				<div class="product-details">
-		                					<h3>
-		                						<a class="product-title" href="single-product.html">Summer Shorts</a>
-		                					</h3>
-		                					<h5 class="category">
-		                						<a href="catalogue-grid.html">Women</a>
-		                					</h5>
-		                				</div>
-		                				<span class="price">
-		                					<del>
-		                						<span>$799.00</span>
-		                					</del>
-		                					<ins>
-		                						<span class="ammount">$650.99</span>
-		                					</ins>
-		                					<span class="rating">
-		                						<a href="#">3 Reviews</a>
-		                					</span>
-		                				</span>
-		                				<p class="product-description">Amadea Shop is a very slick and clean e-commerce template with endless possibilities. Creating an awesome clothes store with this Theme is easy than you can imagine. Grab this theme now.</p>
-		                				<a href="#" class="btn btn-dark btn-md left">Add to Cart</a>
-		                				<div class="icon-add-to-wishlist">
-		                					<a href="#"><i class="fa fa-heart"></i></a>
-		                				</div>
-		                			</div>
-		                		</div>
-
-		                		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 product product-grid">
-		                			<div class="product-item show-image">
-		                				<div class="product-img hover-1">
-			                				<a href="#">
-			                					<img src="http://ecx.images-amazon.com/images/I/61snRD50HzL._SL1000_.jpg" alt="" class="show-item">
-			                				</a>
-			                				<div class="hover-overlay"></div>
-			                				<div class="product-add-to-cart">
-			                					<a href="#" class="btn btn-dark btn-md">Add to Cart</a>
-			                				</div>
-			                				<div class="product-add-to-wishlist">
-			                					<a href="#"><i class="fa fa-heart"></i></a>
-			                				</div>
-		                				</div>
-		                				<div class="product-details">
-		                					<h3>
-		                						<a class="product-title" href="single-product.html">Leather Bag</a>
-		                					</h3>
-		                					<h5 class="category">
-		                						<a href="catalogue-grid.html">Accessories</a>
-		                					</h5>
-		                				</div>
-		                				<span class="price">
-											<del>
-		                						<span>$322.00</span>
-		                					</del>
-		                					<ins>
-		                						<span class="ammount">$299.99</span>
-		                					</ins>
-		                					<span class="rating">
-		                						<a href="#">3 Reviews</a>
-		                					</span>
-		                				</span>
-		                				<p class="product-description">Amadea Shop is a very slick and clean e-commerce template with endless possibilities. Creating an awesome clothes store with this Theme is easy than you can imagine. Grab this theme now.</p>
-		                				<a href="#" class="btn btn-dark btn-md left">Add to Cart</a>
-		                				<div class="icon-add-to-wishlist">
-		                					<a href="#"><i class="fa fa-heart"></i></a>
-		                				</div>
-		                			</div>
-		                		</div>
-
-		                		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 product product-grid">
-		                			<div class="product-item show-image">
-		                				<div class="product-img hover-1">
-			                				<a href="#">
-			                					<img src="http://ecx.images-amazon.com/images/I/41hivUTsQYL.jpg" alt="" class="show-item">
-			                				</a>
-			                				<div class="hover-overlay"></div>
-			                				<div class="product-add-to-cart">
-			                					<a href="#" class="btn btn-dark btn-md">Add to Cart</a>
-			                				</div>
-			                				<div class="product-add-to-wishlist">
-			                					<a href="#"><i class="fa fa-heart"></i></a>
-			                				</div>
-		                				</div>
-		                				<div class="product-details">
-		                					<h3>
-		                						<a class="product-title" href="single-product.html">Hoodie Carded</a>
-		                					</h3>
-		                					<h5 class="category">
-		                						<a href="catalogue-grid.html">Men</a>
-		                					</h5>
-		                				</div>
-		                				<span class="price">
-		                					<ins>
-		                						<span class="ammount">$299.00</span>
-		                					</ins>
-		                					<span class="rating">
-		                						<a href="#">3 Reviews</a>
-		                					</span>
-		                				</span>
-		                				<p class="product-description">Amadea Shop is a very slick and clean e-commerce template with endless possibilities. Creating an awesome clothes store with this Theme is easy than you can imagine. Grab this theme now.</p>
-		                				<a href="#" class="btn btn-dark btn-md left">Add to Cart</a>
-		                				<div class="icon-add-to-wishlist">
-		                					<a href="#"><i class="fa fa-heart"></i></a>
-		                				</div>
-		                			</div>
-		                		</div>
-
-		                		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 product product-grid">
-		                			<div class="product-item show-image">
-		                				<div class="product-img hover-1">
-			                				<a href="#">
-			                					<img src="http://ecx.images-amazon.com/images/I/71SUUttQ0VL._SL1062_.jpg" alt="" class="show-item">
-			                				</a>
-			                				<div class="hover-overlay"></div>
-			                				<div class="product-add-to-cart">
-			                					<a href="#" class="btn btn-dark btn-md">Add to Cart</a>
-			                				</div>
-			                				<div class="product-add-to-wishlist">
-			                					<a href="#"><i class="fa fa-heart"></i></a>
-			                				</div>
-		                				</div>
-		                				<div class="product-details">
-		                					<h3>
-		                						<a class="product-title" href="single-product.html">Leather Belt</a>
-		                					</h3>
-		                					<h5 class="category">
-		                						<a href="catalogue-grid.html">Accessories</a>
-		                					</h5>
-		                				</div>
-		                				<span class="price">
-		                					<ins>
-		                						<span class="ammount">$99.00</span>
-		                					</ins>
-		                					<span class="rating">
-		                						<a href="#">3 Reviews</a>
-		                					</span>
-		                				</span>
-		                				<p class="product-description">Amadea Shop is a very slick and clean e-commerce template with endless possibilities. Creating an awesome clothes store with this Theme is easy than you can imagine. Grab this theme now.</p>
-		                				<a href="#" class="btn btn-dark btn-md left">Add to Cart</a>
-		                				<div class="icon-add-to-wishlist">
-		                					<a href="#"><i class="fa fa-heart"></i></a>
-		                				</div>
-		                			</div>
-		                		</div>
-		                	</div>
-		            		</div>
-		            	</div>
-		            	<nav class="pagination woocommerce-pagination clear">
-		            			<p class="woocommerce-result-count">Showing: 1-12 of 80 results</p>
-		            		    <a href="#"><i class="fa fa-angle-left"></i></a>
-		            			<span class="page-numbers current">1</span>
-		            		    <a href="#">2</a>
-		            		    <a href="#">3</a>
-		            		    <a href="#">4</a>
-		            		    <a href="#"><i class="fa fa-angle-right"></i></a>
-		            		</nav>
+			            		
  <?php include_once '../views/partials/footer.php';?>
 </body>
 </html>
