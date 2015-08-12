@@ -1,29 +1,26 @@
 <?php
-
 require_once '../bootstrap.php';
+$stmt = $dbc->prepare("SELECT * FROM ads WHERE ad_id = :ad_id");
+$stmt->bindValue(':ad_id', Input::get('ad_id'), PDO:: PARAM_INT);
+$stmt->execute();
+
+$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+print_r($results);
+
+
+
 ?>
 <!DOCTYPE html>
 <html>
     <head>
         <title>Pablo's List</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <!-- <link href="https://bootswatch.com/lumen/bootstrap.min.css" rel="stylesheet"> -->
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-    <link href="css/header.css" rel="stylesheet" type="text/css">
     <link href="css/pasta.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/lightbox.min.css">
-    <link rel="stylesheet" href="css/elegant-icons.css">
     <link rel="stylesheet" href="css/font-awesome.css">
-    <link rel="stylesheet" href="rs-plugin/css/settings.css">
-    <link rel="stylesheet" href="css/rev-slider.css">
-    <link rel="stylesheet" href="css/owl.carousel.css">
-    <link rel="stylesheet" href="css/flexslider.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/spacings.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/color.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -59,15 +56,6 @@ require_once '../bootstrap.php';
           </span>
 
         <p class="product-description">Amadea Shop is a very slick and clean e-commerce template with endless possibilities. Creating an awesome clothes store with this Theme is easy than you can imagine. Grab this theme now.</p>
-        <!--<div class="color-swatches clearfix">
-          <h6>Color:</h6>
-          <a href="#" class="swatch-brown selected"></a>
-          <a href="#" class="swatch-red"></a>
-          <a href="#" class="swatch-cream"></a>
-          <a href="#" class="swatch-black"></a>
-          <a href="#" class="swatch-white"></a>
-        </div>
--->
         <!--<div class="size-options clearfix mb-40">
           <h6>Size:</h6>
           <a href="#" class="size-xs selected">XS</a>
@@ -133,9 +121,6 @@ require_once '../bootstrap.php';
             <li>
               <a href="#tab-two" data-toggle="tab">Information</a>
             </li>
-            <!--<li>
-              <a href="#tab-three" data-toggle="tab">Reviews</a>
-            </li>-->
           </ul>
           <!-- end tabs -->
 
@@ -170,41 +155,6 @@ require_once '../bootstrap.php';
                 </tbody>
               </table>
             </div>
-
-            <div class="tab-pane fade" id="tab-three">
-
-              <div class="reviews">
-                <ul class="reviews-list">
-                  <li>
-                    <div class="review-body">
-                      <div class="review-content">
-                        <p class="review-author"><strong>Alexander Samokhin</strong> - May 6, 2014 at 12:48 pm</p>
-                        <div class="rating">
-                          <a href="#"></a>
-                        </div>
-                        <p>This template is so awesome. I didn’t expect so many features inside. E-commerce pages are very useful, you can launch your online store in few seconds. I will rate 5 stars.</p>
-                      </div>
-                    </div>
-                  </li>
-
-                  <li>
-                    <div class="review-body">
-                      <div class="review-content">
-                        <p class="review-author"><strong>Christopher Robins</strong> - May 6, 2014 at 12:48 pm</p>
-                        <div class="rating">
-                          <a href="#"></a>
-                        </div>
-                        <p>This template is so awesome. I didn’t expect so many features inside. E-commerce pages are very useful, you can launch your online store in few seconds. I will rate 5 stars.</p>
-                      </div>
-                    </div>
-                  </li>
-
-                </ul>
-              </div>
-              <!--  end reviews -->
-            </div>
-
-          </div>
           <!-- end tab content -->
 
         </div>
