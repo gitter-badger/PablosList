@@ -537,6 +537,15 @@
 		                	</div>
 		            		</div>
 		            	</div>
+		            	<nav class="pagination woocommerce-pagination clear">
+		            			<p class="woocommerce-result-count">Showing: 1-12 of 80 results</p>
+		            		    <a href="#"><i class="fa fa-angle-left"></i></a>
+		            			<span class="page-numbers current">1</span>
+		            		    <a href="#">2</a>
+		            		    <a href="#">3</a>
+		            		    <a href="#">4</a>
+		            		    <a href="#"><i class="fa fa-angle-right"></i></a>
+		            		</nav>
  <?php include_once '../views/partials/footer.php';?>
 </body>
 </html>
