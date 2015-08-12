@@ -1,11 +1,17 @@
 <?php
 require_once '../bootstrap.php';
-$stmt = $dbc->prepare("SELECT * FROM ads WHERE ad_id = :ad_id");
-$stmt->bindValue(':ad_id', Input::get('ad_id'), PDO:: PARAM_INT);
-$stmt->execute();
+if (Input::has('ad_id')) {
+    $stmt = $dbc->prepare("SELECT * FROM ads WHERE ad_id = :ad_id");
+    $stmt->bindValue(':ad_id', Input::get('ad_id'), PDO:: PARAM_INT);
+    $stmt->execute();
 
-$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-print_r($results);
+    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    // print_r($results);
+    $ad = $results[0];
+} else {
+    header("Location: ads.index.php");
+    exit;
+}
 
 
 
@@ -14,6 +20,7 @@ print_r($results);
 <html>
     <head>
         <title>Pablo's List</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
     <link href="css/pasta.css" rel="stylesheet" type="text/css">
@@ -41,21 +48,21 @@ print_r($results);
     <div class="row">
 
        <div class="col-md-6">
-      <img src="http://deothemes.com/envato/amadea/html/img/product_large_1.jpg" alt="" draggable="false">
+      <img src="<?= $ad['img_url'] ?>" alt="" draggable="false">
       </div>
       <!-- end col -->
 
       <div class="col-md-6 product-description-wrap">
-        <h1 class="product-title">ladies bag</h1>
+        <h1 class="product-title"><?= $ad['title'] ?></h1>
 
           <span class="price">
 
         <ins>
-          <span class="ammount">$299.99</span>
+          <span class="ammount">$<?= $ad['price'] ?></span>
         </ins>
           </span>
 
-        <p class="product-description">Amadea Shop is a very slick and clean e-commerce template with endless possibilities. Creating an awesome clothes store with this Theme is easy than you can imagine. Grab this theme now.</p>
+        <p class="product-description"><?= $ad['description'] ?></p>
         <!--<div class="size-options clearfix mb-40">
           <h6>Size:</h6>
           <a href="#" class="size-xs selected">XS</a>
