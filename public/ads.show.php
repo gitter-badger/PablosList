@@ -46,14 +46,14 @@
 
       <div class="col-md-6 product-description-wrap">
         <h1 class="product-title">ladies bag</h1>
-        <!-- <div class="rating">
-          <a href="#">3 Reviews</a>
-        </div> -->
-        <span class="price">
+
+          <span class="price">
+     
         <ins>
-        <span class="ammount">$299.99</span>
+          <span class="ammount">$299.99</span>
         </ins>
-        </span>
+          </span>
+
         <p class="product-description">Amadea Shop is a very slick and clean e-commerce template with endless possibilities. Creating an awesome clothes store with this Theme is easy than you can imagine. Grab this theme now.</p>
         <!--<div class="color-swatches clearfix">
           <h6>Color:</h6>
