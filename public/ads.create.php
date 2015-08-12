@@ -1,6 +1,5 @@
 <?php
 require_once '../bootstrap.php';
-session_start();
 var_dump($_FILES);
 
 if($_FILES) {
@@ -109,7 +108,7 @@ if(Input::has('create_ad') && $showUploadedFile){
         <div class="form-group">
           <label class="col-md-4 control-label" for="tags">Tags</label>
           <div class="col-md-6">
-          <input id="tags" name="tags" type="text" placeholder="Winning, Mtn Dew, Girls on tables" class="form-control input-md" required="">
+          <input id="tags" name="tags" type="text" placeholder="Winning, Mtn Dew, Girls on tables" value="<?= Input::get('tags') ?>"class="form-control input-md" required="">
           <span class="help-block">Separate tags with commas</span>
           </div>
         </div>
