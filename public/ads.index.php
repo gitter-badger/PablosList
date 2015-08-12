@@ -65,17 +65,6 @@ img.show-item {
 	height:322px;
 	width:262.484px;
 }
-.black {
-	background-color: black;
-}
-
-.white{
-	background-color: white;
-}
-
-.move {
-	padding-top:20px;
-}
 
 
     </style>
@@ -84,7 +73,7 @@ img.show-item {
  <?php include_once '../views/partials/navbar.php';?>
 <div class="container">
 	</div>
-	<div class="col-md-12 center">
+	<div class="col-md-1 center">
 		<div class="row shop-catalogue grid-view left">
     	<?php foreach($ads as $ad) : ?>
         	<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 product product-grid">
