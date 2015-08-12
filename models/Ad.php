@@ -19,29 +19,25 @@
 		public $img_url;
 		public $description;
 		public $user_id;
+		public $date_created;
 
 		public function create()
 		{
 			$stmt = $dbc->prepare('INSERT INTO ads (user_id, title, price,  img_url, tags, date_created, description)
 								   VALUES (:user_id, :title, :price, :img_url, :tags, :date_created, :description)');
 
-			try {
-				$stmt->bindValue(':user_id', (int)$_SESSION['user_id'], PDO::PARAM_STR);
+
+				$stmt->bindValue(':user_id', $this->user_id, PDO::PARAM_STR);
+				$stmt->bindValue(':title', $this->title, PDO::PARAM_STR);
+				$stmt->bindValue(':price', $this->price, PDO::PARAM_INT);
+				$stmt->bindValue(':img_url', $this->img_url, PDO::PARAM_STR);
+				$stmt->bindValue(':tags', $this->date_created, PDO::PARAM_STR);				
+				$stmt->bindValue(':date_created', $this->date_created, PDO::PARAM_STR);
 			} catch (Exception $e) {
 				$errors[]= $e->getMessage();
 			}
 			try {
-				$stmt->bindValue(':title', Input::getString('title', 5, 60), PDO::PARAM_STR);
-			} catch (Exception $e) {
-				$errors[]= $e->getMessage();
-			}
-			try {
-				$stmt->bindValue(':date_established', Input::getDate('date'), PDO::PARAM_STR);
-			} catch (Exception $e) {
-				$errors[]= $e->getMessage();
-			}
-			try {
-				$stmt->bindValue(':area_in_acres', Input::getNumber('area'), PDO::PARAM_INT);
+
 			} catch (Exception $e) {
 				$errors[]= $e->getMessage();
 			}
