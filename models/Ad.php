@@ -21,38 +21,38 @@
 		public $user_id;
 		public $date_created;
 
-		public function create()
-		{
-			$stmt = $dbc->prepare('INSERT INTO ads (user_id, title, price,  img_url, tags, date_created, description)
-								   VALUES (:user_id, :title, :price, :img_url, :tags, :date_created, :description)');
+		// public function create()
+		// {
+		// 	$stmt = $dbc->prepare('INSERT INTO ads (user_id, title, price,  img_url, tags, date_created, description)
+		// 						   VALUES (:user_id, :title, :price, :img_url, :tags, :date_created, :description)');
 
 
-				$stmt->bindValue(':user_id', $this->user_id, PDO::PARAM_STR);
-				$stmt->bindValue(':title', $this->title, PDO::PARAM_STR);
-				$stmt->bindValue(':price', $this->price, PDO::PARAM_INT);
-				$stmt->bindValue(':img_url', $this->img_url, PDO::PARAM_STR);
-				$stmt->bindValue(':tags', $this->date_created, PDO::PARAM_STR);				
-				$stmt->bindValue(':date_created', $this->date_created, PDO::PARAM_STR);
-			} catch (Exception $e) {
-				$errors[]= $e->getMessage();
-			}
-			try {
+		// 		$stmt->bindValue(':user_id', $this->user_id, PDO::PARAM_STR);
+		// 		$stmt->bindValue(':title', $this->title, PDO::PARAM_STR);
+		// 		$stmt->bindValue(':price', $this->price, PDO::PARAM_INT);
+		// 		$stmt->bindValue(':img_url', $this->img_url, PDO::PARAM_STR);
+		// 		$stmt->bindValue(':tags', $this->date_created, PDO::PARAM_STR);				
+		// 		$stmt->bindValue(':date_created', $this->date_created, PDO::PARAM_STR);
+		// 	} catch (Exception $e) {
+		// 		$errors[]= $e->getMessage();
+		// 	}
+		// 	try {
 
-			} catch (Exception $e) {
-				$errors[]= $e->getMessage();
-			}
-			try {
-				$stmt->bindValue(':description', Input::getString('description'), PDO::PARAM_STR);
+		// 	} catch (Exception $e) {
+		// 		$errors[]= $e->getMessage();
+		// 	}
+		// 	try {
+		// 		$stmt->bindValue(':description', Input::getString('description'), PDO::PARAM_STR);
 
-			} catch (Exception $e) {
-				$errors[]= $e->getMessage();
-			}
-			if (empty($errors)) {
+		// 	} catch (Exception $e) {
+		// 		$errors[]= $e->getMessage();
+		// 	}
+		// 	if (empty($errors)) {
 
-		        $stmt->execute();
-		        unset($_POST);
-		    }
-		}
+		//         $stmt->execute();
+		//         unset($_POST);
+		//     }
+		// }
 		public static function allByUser($user_id)
 		{
 			parent::dbConnect();

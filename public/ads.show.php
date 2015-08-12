@@ -79,6 +79,39 @@ if (Input::has('ad_id')) {
           <a href="#"><i class="fa fa-heart"></i></a>
         </div>
 
+        <div class="product_meta">
+          <span class="tagged_as">Tags: <a href="#">Elegant</a>, <a href="#">Bag</a></span>
+        </div>
+
+         <div class="socials-share clearfix">
+          <span>Share:</span>
+          <div class="social-icons light">
+            <a href="#" class="facebook">
+              <i class="fa fa-facebook"></i>
+              <i class="fa fa-facebook"></i>
+            </a>
+            <a href="#" class="twitter">
+              <i class="fa fa-twitter"></i>
+              <i class="fa fa-twitter"></i>
+            </a>
+            <a href="#" class="google-plus">
+              <i class="fa fa-google-plus"></i>
+              <i class="fa fa-google-plus"></i>
+            </a>
+            <a href="#" class="linkedin">
+              <i class="fa fa-linkedin"></i>
+              <i class="fa fa-linkedin"></i>
+            </a>
+            <a href="#" class="pinterest">
+              <i class="fa fa-pinterest"></i>
+              <i class="fa fa-pinterest"></i>
+            </a>
+            <a href="#" class="instagram">
+              <i class="fa fa-instagram"></i>
+              <i class="fa fa-instagram"></i>
+            </a>
+          </div>
+
         <div class="col-md-12 mt-70">
         <div class="tabs">
           <ul class="nav nav-tabs">
@@ -111,38 +144,7 @@ if (Input::has('ad_id')) {
       </div>
       <!-- end tabs -->
 
-        <div class="product_meta">
-          <span class="tagged_as">Tags: <a href="#">Elegant</a>, <a href="#">Bag</a></span>
-        </div>
-
-        <div class="socials-share clearfix">
-          <span>Share:</span>
-          <div class="social-icons light">
-            <a href="#" class="facebook">
-              <i class="fa fa-facebook"></i>
-              <i class="fa fa-facebook"></i>
-            </a>
-            <a href="#" class="twitter">
-              <i class="fa fa-twitter"></i>
-              <i class="fa fa-twitter"></i>
-            </a>
-            <a href="#" class="google-plus">
-              <i class="fa fa-google-plus"></i>
-              <i class="fa fa-google-plus"></i>
-            </a>
-            <a href="#" class="linkedin">
-              <i class="fa fa-linkedin"></i>
-              <i class="fa fa-linkedin"></i>
-            </a>
-            <a href="#" class="pinterest">
-              <i class="fa fa-pinterest"></i>
-              <i class="fa fa-pinterest"></i>
-            </a>
-            <a href="#" class="instagram">
-              <i class="fa fa-instagram"></i>
-              <i class="fa fa-instagram"></i>
-            </a>
-          </div>
+       
         </div>
       </div>
         </div>
