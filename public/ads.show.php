@@ -63,6 +63,8 @@ if (Input::has('ad_id')) {
           </span>
 
         <p class="product-description"><?= $ad['description'] ?></p>
+
+
         <!--<div class="size-options clearfix mb-40">
           <h6>Size:</h6>
           <a href="#" class="size-xs selected">XS</a>
@@ -73,17 +75,43 @@ if (Input::has('ad_id')) {
         </div>-->
 
         <a href="#" class="btn btn-dark btn-md add-to-cart left">Add to Cart</a>
-        <div class="quantity buttons_added">
-          <input type="button" value="-" class="minus">
-          <input type="number" step="1" min="0" value="1" title="Qty" class="input-text qty text">
-          <input type="button" value="+" class="plus">
-        </div>
         <div class="icon-add-to-wishlist">
           <a href="#"><i class="fa fa-heart"></i></a>
         </div>
 
+        <div class="col-md-12 mt-70">
+        <div class="tabs">
+          <ul class="nav nav-tabs">
+            <li class="active">
+              <a href="#tab-one" data-toggle="tab">Similar Listings</a>
+            </li>
+            <li>
+              <a href="#tab-two" data-toggle="tab">Contact Seller</a>
+            </li>
+          </ul>
+          <!-- end tabs -->
+
+          <!-- tab content -->
+          <div class="tab-content pb-0">
+
+            <div class="tab-pane fade in active" id="tab-one">
+              <p>
+                We possess within us two minds. So far I have written only of the conscious mind. I would now like to introduce you to your second mind, the hidden and mysterious subconscious. Our subconscious mind contains such power and complexity that it literally
+                staggers the imagination.And finally the subconscious is the mechanism through which thought impulses which are repeated regularly with feeling and emotion are quickened, charged. Our subconscious mind contains such power and complexity
+                that it literally staggers the imagination.And finally the subconscious is the mechanism through which thought impulses.
+              </p>
+            </div>
+
+             <div class="tab-pane fade" id="tab-two">
+             <?php include_once '../views/forms/contact_form.php';?>
+            </div> 
+          <!-- end tab content -->
+
+        </div>
+      </div>
+      <!-- end tabs -->
+
         <div class="product_meta">
-           Category: <a href="#">Accessories</a></span>
           <span class="tagged_as">Tags: <a href="#">Elegant</a>, <a href="#">Bag</a></span>
         </div>
 
@@ -117,53 +145,6 @@ if (Input::has('ad_id')) {
           </div>
         </div>
       </div>
-      <!-- end product description -->
-
-      <div class="col-md-12 mt-70">
-        <div class="tabs">
-          <ul class="nav nav-tabs">
-            <li class="active">
-              <a href="#tab-one" data-toggle="tab">Description</a>
-            </li>
-            <li>
-              <a href="#tab-two" data-toggle="tab">Information</a>
-            </li>
-          </ul>
-          <!-- end tabs -->
-
-          <!-- tab content -->
-          <div class="tab-content pb-0">
-
-            <div class="tab-pane fade in active" id="tab-one">
-              <p>
-                We possess within us two minds. So far I have written only of the conscious mind. I would now like to introduce you to your second mind, the hidden and mysterious subconscious. Our subconscious mind contains such power and complexity that it literally
-                staggers the imagination.And finally the subconscious is the mechanism through which thought impulses which are repeated regularly with feeling and emotion are quickened, charged. Our subconscious mind contains such power and complexity
-                that it literally staggers the imagination.And finally the subconscious is the mechanism through which thought impulses.
-              </p>
-            </div>
-
-            <div class="tab-pane fade" id="tab-two">
-              <table>
-                <thead>
-                  <tr>
-                    <th>CPU</th>
-                    <td>2.7GHz quad-core Intel Core i5 Turbo Boost up to 3.2GHz</td>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th>RAM</th>
-                    <td>8GB (two 4GB) memory</td>
-                  </tr>
-                  <tr>
-                    <th>Video</th>
-                    <td>Intel Iris Pro Graphics</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          <!-- end tab content -->
-
         </div>
       </div>
       <!-- end tabs -->

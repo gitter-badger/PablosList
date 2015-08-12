@@ -2,7 +2,7 @@
  require_once '../bootstrap.php';
 
 	$adCount = $dbc->query('SELECT count(*) FROM ads')->fetchColumn();
-	$limit = 6;
+	$limit = 8;
 	$id = Input::has('id');
 	$pageCount = ceil($adCount/$limit);
 
@@ -65,21 +65,33 @@ img.show-item {
 	height:322px;
 	width:262.484px;
 }
+.black {
+	background-color: black;
+}
+
+.white{
+	background-color: white;
+}
+
+.move {
+	padding-top:20px;
+}
 
 
     </style>
 </head>
 <body>
  <?php include_once '../views/partials/navbar.php';?>
-<div class="container-relative">
-	<div class="col-md-9 right">
+<div class="container">
+	</div>
+	<div class="col-md-12 center">
 		<div class="row shop-catalogue grid-view left">
     	<?php foreach($ads as $ad) : ?>
-        	<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 product product-grid">
+        	<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 product product-grid">
 				<div class="product-item show-image">
 					<div class="product-img hover-1">
     				  <a href="#">							
-    				    <img src="<?= $ad['img_url']; ?>" alt="" class="show-item" height="433" width="292.484">
+    				    <img src="<?= $ad['img_url']; ?>" alt="" class="show-item">
     				  </a>
 					  <div class="hover-overlay"></div>
 						<div class="product-add-to-cart">
@@ -93,9 +105,6 @@ img.show-item {
 						<h3>
 							<a class="product-title" href="single-product.html"><?= $ad['title'];?></a>
 						</h3>
-						<h5 class="category">
-							<a href="catalogue-grid.html">Men</a>
-						</h5>
 					</div>
 						<span class="price">
 					<ins>
@@ -111,6 +120,7 @@ img.show-item {
 			</div>
 			<?php endforeach ?>
 
+		</div>
 	<?php if($page > 1) { ?>
 		<a type="button" class="btn btn-primary" href="ads.index.php?page=<?= ($page - 1) ?>">Previous page</a>
 	<?php } ?>
@@ -118,12 +128,13 @@ img.show-item {
 	<?php if ($page < $pageCount) { ?>
 	 <a type="button" class="btn btn-primary" href="ads.index.php?page=<?= ($page + 1) ?>">Next Page</a>
 	 <?php } ?>
-		</div>
 	</div>
+</div>
+<div class="move">
+ <?php include_once '../views/partials/footer.php';?>
 </div>
 
 
 			            		
- <?php include_once '../views/partials/footer.php';?>
 </body>
 </html>
