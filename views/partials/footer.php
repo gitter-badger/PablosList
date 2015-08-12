@@ -4,7 +4,7 @@
     <div class="col-lg-12">
       <div class="col-md-3">
         <ul class="nav nav-pills nav-stacked">
-          <li><a href="#">About</a></li>
+          <li><a href="ron_ducking_swanson.html">Meet Ron</a></li>
         </ul>
       </div>
       <div class="col-md-3">

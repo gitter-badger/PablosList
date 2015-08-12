@@ -9,7 +9,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.php" >Pablo's List</a>
+      <a class="navbar-brand" href="index.php">Pablo's List</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -17,7 +17,7 @@
       <ul class="nav navbar-nav">
         <li><a href="ads.show.php" >Pablo's Pick</a></li>
         <li><a href="ads.index.php">Browse</a></li>
-        <li><a href="ron_ducking_swanson.html" >RonDuckingSwanson</a></li>
+        <!-- <li><a href="ron_ducking_swanson.html" >RonDuckingSwanson</a></li> -->
       </ul>
       <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
@@ -35,7 +35,7 @@
             <span class="caret"></span> </a>
             <ul class="dropdown-menu" role="menu">
               <li><a href="" >Show My Listings</a></li>
-              <li><a href="" >Post New Listing</a></li>
+              <li><a href="ads.create.php" >Post New Listing</a></li>
               <li><a href="" >My Watchlist</a></li>
               <li class="divider"></li>
               <li><a href="" >Ran Out Of Cool Things</a></li>

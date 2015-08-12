@@ -5,6 +5,8 @@ require_once 'utils/Auth.php';
 require_once 'models/BaseModel.php';
 require_once 'models/User.php';
 require_once 'models/Ad.php';
+require_once 'models/Tag.php';
+
 
 define('DB_HOST', '127.0.0.1');
 define('DB_NAME','pablo_db');
