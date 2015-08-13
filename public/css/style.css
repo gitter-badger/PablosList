@@ -73,7 +73,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Open Sans', sans-serif;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.5;
   font-smoothing: antialiased;
   -webkit-font-smoothing: antialiased;
@@ -81,7 +81,7 @@ body {
   outline: 0;
   overflow-x: hidden;
   overflow-y: auto;
-  color: #969ca7;
+  /*color: #969ca7;*/
 }
 
 video {
@@ -133,7 +133,7 @@ p {
   left:0;
   right:0;
   bottom:0;
-  background-color:#fff; 
+  background-color:#fff;
   z-index:99999;
 }
 
@@ -211,7 +211,7 @@ p {
 /* Navigation Type-1
 /*-------------------------------------------------------*/
 
-.navbar {
+/*.navbar {
   margin-bottom: 0;
   border: none;
   min-height: 100px;
@@ -327,13 +327,13 @@ p {
   background-color: transparent;
   border-color: #ecf0f1;
   text-decoration: none;
-}
+}*/
 
 
 /* Navigation Toggle
 -------------------------------------------------------*/
 
-.navbar-toggle {
+/*.navbar-toggle {
   margin-top: 13px;
   border: none;
   z-index: 50;
@@ -353,7 +353,7 @@ p {
 .navbar-toggle:focus,
 .navbar-toggle:hover {
   background-color: transparent;
-}
+}*/
 
 
 /* Cart Type 1/2
@@ -688,7 +688,7 @@ p {
 
 .top-bar-acc li:after {
   content: "";
-  border-right: 1px solid #303437; 
+  border-right: 1px solid #303437;
   margin: 0 3px 0 7px;
 }
 
@@ -708,7 +708,7 @@ p {
 }
 
 
-/* Category / Search / Cart 
+/* Category / Search / Cart
 -------------------------------------------------------*/
 
 .search-big-wrap,
@@ -922,7 +922,7 @@ p {
 
   .nav-type-1 .navbar-header {
     box-shadow: 0 1px 0 rgba(235,238,242,1);
-  } 
+  }
 
   .logo-container {
     width: 100%;
@@ -1006,7 +1006,7 @@ p {
   .navbar-nav .open .dropdown-menu > li > a {
     color: #969ca7;
   }
-  
+
   .navbar-nav .open .dropdown-menu > li > a:focus {
     background-color: transparent;
   }
@@ -1052,7 +1052,7 @@ p {
 
   .nav-type-1 .navigation {
     box-shadow: 0 1px 0 rgba(235,238,242,1);
-  } 
+  }
 
   .navbar-nav > li:last-child > a {
     padding-right: 0;
@@ -1158,7 +1158,7 @@ p {
     padding-left: 10px;
   }
 
-  .dropdown-menu, 
+  .dropdown-menu,
   .dropdown-submenu > .dropdown-menu {
     display: block;
     visibility: hidden;
@@ -1302,7 +1302,7 @@ p {
   }
 
   .nav-type-3 .navbar {
-    min-height: 100%; 
+    min-height: 100%;
   }
 
   .header-wrap {
@@ -1504,7 +1504,7 @@ h2.heading-small {
 
 .col-xs-8.masonry-item,
 .col-xs-4.masonry-item {
-  padding: 0 3px; 
+  padding: 0 3px;
 }
 
 .collection-img {
@@ -1537,7 +1537,7 @@ h2.heading-small {
   left: 20px;
   right: 20px;
   bottom: 20px;
-  border: 3px solid #fff; 
+  border: 3px solid #fff;
   display: block;
 }
 
@@ -1887,7 +1887,7 @@ h2.heading-small {
 
 .social-icons.light a {
   background-color: #f5f9fa;
-} 
+}
 
 .social-icons i {
   display: block;
@@ -2163,7 +2163,7 @@ h2.heading-small {
 }
 
 .product-details .category > a {
-  color: #969ca7; 
+  color: #969ca7;
 }
 
 .product-details .category > a:hover,
@@ -2377,7 +2377,7 @@ h3.heading-small {
 }
 .footer-latest-posts ul li {
   padding: 14px 0;
-  border-bottom: 1px solid #31353a; 
+  border-bottom: 1px solid #31353a;
 }
 
 .footer-latest-posts ul li:first-child {
@@ -2759,7 +2759,7 @@ blockquote > p {
   font-size: 16px;
   line-height: 30px;
   font-style: italic;
-  margin-bottom: 5px !important; 
+  margin-bottom: 5px !important;
   position: relative;
 }
 
@@ -2834,7 +2834,7 @@ blockquote > span {
   content: "• ";
   font-size: 14px;
   color: #0ccfa8;
-  padding-right: 0.5em; 
+  padding-right: 0.5em;
 }
 
 .arrows i {
@@ -3159,7 +3159,7 @@ ol.numbers {
   float: right;
 }
 
-.progress.meter { 
+.progress.meter {
   height: 16px;
   border-radius: 2px;
   position: relative;
@@ -3485,7 +3485,7 @@ select::-ms-expand {
 }
 
 .view-mode .list.list-active {
-  background-position: 0 -60px; 
+  background-position: 0 -60px;
 }
 
 .view-mode .list {
@@ -3519,7 +3519,7 @@ select::-ms-expand {
   float: right;
 }
 
-.woocommerce-ordering select { 
+.woocommerce-ordering select {
   width: 220px;
   padding: 0 15px;
   height: 30px;
@@ -3578,7 +3578,7 @@ select::-ms-expand {
 .product-list .price {
   margin-top: 20px;
   padding: 16px 0;
-  border-top: 1px solid #ebeef2; 
+  border-top: 1px solid #ebeef2;
   border-bottom: 1px solid #ebeef2;
   font-size: 18px;
   float: left;
@@ -4455,7 +4455,7 @@ abbr.required {
 
 .payment_methods li {
   padding: 15px 0;
-  border-bottom: 1px solid #e9ecf1; 
+  border-bottom: 1px solid #e9ecf1;
 }
 
 .payment_method_paypal img {

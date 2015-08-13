@@ -1,63 +1,33 @@
 <?php
 	require_once 'BaseModel.php';
-	// $new_ad = new Ad();
-	// $new_ad->tags         = Input::get('tags');
-	// $new_ad->title        = Input::get('title');
-	// $new_ad->price        = (float)Input::get('price');
-	// $new_ad->img_url      = $filename;
-	// $new_ad->description  = Input::get('description');
-	// $new_ad->date_created = date('Y-m-d');
-	// $new_ad->user_id      = (int)$_SESSION['user_id'];
-	// $new_ad->save();
+
 	class Ad extends Model
 	{
 		protected static $table = 'ads';
 		protected static $id    = 'ad_id';
-		public $tags;
-		public $title;
-		public $price;
-		public $img_url;
-		public $description;
-		public $user_id;
-		public $date_created;
 
-		public function create()
+
+		public function insert()
 		{
-			$stmt = $dbc->prepare('INSERT INTO ads (user_id, title, price,  img_url, tags, date_created, description)
+			$stmt = self::$dbc->prepare('INSERT INTO ads (user_id, title, price,  img_url, tags, date_created, description)
 								   VALUES (:user_id, :title, :price, :img_url, :tags, :date_created, :description)');
 
+			$stmt->bindValue(':user_id', $this->user_id, PDO::PARAM_INT);
+			$stmt->bindValue(':title', $this->title, PDO::PARAM_STR);
+			$stmt->bindValue(':price', $this->price, PDO::PARAM_INT);
+			$stmt->bindValue(':img_url', $this->img_url, PDO::PARAM_STR);
+			$stmt->bindValue(':tags', $this->tags, PDO::PARAM_STR);
+			$stmt->bindValue(':date_created', $this->date_created, PDO::PARAM_STR);
+			$stmt->bindValue(':description', $this->description, PDO::PARAM_STR);
 
-				$stmt->bindValue(':user_id', $this->user_id, PDO::PARAM_STR);
-				$stmt->bindValue(':title', $this->title, PDO::PARAM_STR);
-				$stmt->bindValue(':price', $this->price, PDO::PARAM_INT);
-				$stmt->bindValue(':img_url', $this->img_url, PDO::PARAM_STR);
-				$stmt->bindValue(':tags', $this->date_created, PDO::PARAM_STR);				
-				$stmt->bindValue(':date_created', $this->date_created, PDO::PARAM_STR);
-			} catch (Exception $e) {
-				$errors[]= $e->getMessage();
-			}
-			try {
+	        $stmt->execute();
 
-			} catch (Exception $e) {
-				$errors[]= $e->getMessage();
-			}
-			try {
-				$stmt->bindValue(':description', Input::getString('description'), PDO::PARAM_STR);
-
-			} catch (Exception $e) {
-				$errors[]= $e->getMessage();
-			}
-			if (empty($errors)) {
-
-		        $stmt->execute();
-		        unset($_POST);
-		    }
 		}
 		public static function allByUser($user_id)
 		{
 			parent::dbConnect();
 
-			$query = "SELECT * FROM " . self::$table . " WHERE user_id = :user_id";
+			$query = "SELECT * FROM ads WHERE user_id = :user_id";
 
 			$stmt = parent::$dbc->prepare($query);
 			$stmt->bindValue(':user_id', (int)$user_id, PDO::PARAM_INT);
@@ -79,6 +49,29 @@
 
 			return $ad_id;
 		}
+
+		public static function find($id)
+	    {
+	        // Get connection to the database
+	        parent::dbConnect();
+
+	        // @TODO: Create select statement using prepared statements
+	        $stmt = parent::$dbc->prepare('SELECT * FROM ads WHERE ad_id = :id');
+
+	        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+	        $stmt->execute();
+	        // @TODO: Store the resultset in a variable named $result
+	        $results = $stmt->fetch(PDO::FETCH_ASSOC);
+	        // The following code will set the attributes on the calling object based on the result variable's contents
+
+	        $instance = null;
+	        if ($results)
+	        {
+	            $instance = $results;
+	            // $instance->attributes = $results;
+	        }
+	        return $instance;
+	    }
 
 	}
 ?>

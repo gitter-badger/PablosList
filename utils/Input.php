@@ -84,7 +84,7 @@ class Input
     // If the value is the wrong type, throw a DomainException
     // If a string is shorter than $min or longer than $max, throw a LengthException
     // If a number is less than $min or larger than $max, throw a RangeException
-    public static function getNumber($key, $min = 0, $max = 9999999999)
+    public static function getNumber($key, $min = 0, $max = 15)
     {
         // If $key is not a string, or $min & $max are not numbers, throw an InvalidArgumentException.
         if (!is_string($key) || !is_numeric($min) || !is_numeric($max)  ) {
@@ -99,21 +99,15 @@ class Input
         if (!is_numeric($value)) {
             throw new DomainException('$key is not a string.');
         }
-        // If a string is shorter than $min or longer than $max, throw a LengthException
+        // If the numeric string is shorter than $min or longer than $max, throw a LengthException
         if ( strlen($value) < $min || strlen($value) > $max ) {
             throw new LengthException('String does not meet min/max length paramets.');
         }
-        // If a number is less than $min or larger than $max, throw a RangeException
-        if ($value < self::$numMin || $value > self::$numMax) {
-            throw new RangeException('Please use a number between execepted Input min/max');
-        }
+
         if ( $value && is_numeric($value) ) {
             return $value;
         }
         else {
-            if ( !$value ) {
-                throw new Exception('$key not found in REQUEST');
-            }
             if ( !is_numeric($value) ) {
                 throw new Exception('$key is not a number');
             }

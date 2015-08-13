@@ -8,22 +8,22 @@ class User extends Model {
     public static function find($id)
     {
         // Get connection to the database
-        self::dbConnect();
+        parent::dbConnect();
 
         // @TODO: Create select statement using prepared statements
-        $stmt = self::$dbc->prepare('SELECT * FROM user WHERE id = :id');
+        $stmt = parent::$dbc->prepare('SELECT * FROM users WHERE user_id = :id');
 
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
         // @TODO: Store the resultset in a variable named $result
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        $results = $stmt->fetch(PDO::FETCH_ASSOC);
         // The following code will set the attributes on the calling object based on the result variable's contents
 
         $instance = null;
-        if ($result)
+        if ($results)
         {
             $instance = new static;
-            $instance->attributes = $result;
+            $instance->attributes = $results;
         }
         return $instance;
     }
