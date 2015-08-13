@@ -49,8 +49,6 @@ img.show-item {
         <?php include_once '../views/partials/navbar.php';?>
     </section>
 	<div class="col-md-12 center">
-
-
 		<h1><?= $userInfo->first_name . "'s" ?> Listings</h1>
 
 		<div class="row shop-catalogue grid-view left">

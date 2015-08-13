@@ -23,7 +23,7 @@
 
 	        $stmt->execute();
 
-
+	    }
 		public static function allByUser($user_id)
 		{
 			parent::dbConnect();

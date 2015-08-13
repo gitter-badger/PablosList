@@ -64,17 +64,6 @@ if (Input::has('ad')) {
           </span>
 
         <p class="product-description"><?= $ad['description'] ?></p>
-
-
-        <!--<div class="size-options clearfix mb-40">
-          <h6>Size:</h6>
-          <a href="#" class="size-xs selected">XS</a>
-          <a href="#" class="size-s">S</a>
-          <a href="#" class="size-m">M</a>
-          <a href="#" class="size-l">L</a>
-          <a href="#" class="size-xl">XL</a>
-        </div>-->
-
         <a href="#" class="btn btn-dark btn-md add-to-cart left">Contact Seller</a>
         <div class="icon-add-to-wishlist">
           <a href="#"><i class="fa fa-heart"></i></a>
@@ -115,38 +104,6 @@ if (Input::has('ad')) {
 
         <div class="col-md-12 mt-70">
         <div class="tabs">
-
-          <!-- <ul class="nav nav-tabs">
-            <li class="active">
-              <a href="#tab-one" data-toggle="tab">Similar Listings</a>
-            </li>
-            <li>
-              <a href="#tab-two" data-toggle="tab">Contact Seller</a>
-            </li>
-          </ul> --> -->
-          <!-- end tabs -->
-
-          <!-- tab content -->
-          <!-- <div class="tab-content pb-0">
-
-            <div class="tab-pane fade in active" id="tab-one">
-              <p>
-                We possess within us two minds. So far I have written only of the conscious mind. I would now like to introduce you to your second mind, the hidden and mysterious subconscious. Our subconscious mind contains such power and complexity that it literally
-                staggers the imagination.And finally the subconscious is the mechanism through which thought impulses which are repeated regularly with feeling and emotion are quickened, charged. Our subconscious mind contains such power and complexity
-                that it literally staggers the imagination.And finally the subconscious is the mechanism through which thought impulses.
-              </p>
-            </div>
-
-             <div class="tab-pane fade" id="tab-two">
-             <?php //include_once '../views/forms/contact_form.php';?>
-            </div> -->
-          <!-- end tab content -->
-
-        <!-- </div>
-      </div> -->
-      <!-- end tabs -->
-
-
         </div>
       </div>
         </div>
