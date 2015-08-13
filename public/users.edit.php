@@ -20,28 +20,53 @@
 		$new_user = new User();
 		if (Input::has('first_name')) {
 
-			$new_user->first_name = Input::get('first_name');
+			$stmt = $dbc->prepare('UPDATE users
+                      SET first_name=:first_name
+                      WHERE id=:id');
 
+			$stmt->bindValue(':first_name', Input::get(first_name), PDO::PARAM_STR);
 		}
+			$stmt->execute()
+
 		if (Input::has('last_name')) {
 
-			$new_user->last_name  = Input::get('last_name');
-			
-		}if (Input::has('email')) {
+			$stmt = $dbc->prepare('UPDATE users
+                     SET last_name=:last_name
+                     WHERE id=:id');
+			$stmt->bindValue(':last_name', Input::get(last_name), PDO::PARAM_STR);
+		}
+			$stmt->execute()
 
-			$new_user->email = Input::get('email'); // needs to check if already exists in _db; real time update would be nice; can be done with exceptions
-			
-		}if (Input::has('password')) {
+		if (Input::has('email')) {
 
-			$new_user->password   = $hashed_password;
-			
-		}if (Input::has('avatar_img')) {
+			$stmt = $dbc->prepare('UPDATE users
+                     SET email=:email
+                     WHERE id=:id');
 
-			$new_user->avatar_img = Input::get('avatar_img');
-
-			$new_user->save();
+			$stmt->bindValue(':email', Input::get(email), PDO::PARAM_STR);
 
 		}
+			$stmt->execute()
+		if (Input::has('password')) {
+
+			$stmt = $dbc->prepare('UPDATE users
+                     SET password=:password
+                     WHERE id=:id');
+
+			$stmt->bindValue(':password', Input::get(password), PDO::PARAM_STR);
+		}
+			$stmt->execute()
+
+		if (Input::has('avatar_img')) {
+
+			$stmt = $dbc->prepare('UPDATE users
+                     SET avatar_img=:avatar_img
+                     WHERE id=:id');
+
+			$stmt->bindValue(':avatar_img', Input::get(avatar_img), PDO::PARAM_STR);
+		}
+			$stmt->execute();
+
 	}
 
 ?>
