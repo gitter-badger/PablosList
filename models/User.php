@@ -41,10 +41,8 @@ class User extends Model {
         $stmt->bindValue(':avatar_img', 'img/pablo.jpg', PDO::PARAM_STR);
 
         return $stmt->execute();
-
-
-
     }
+    
 
     public function checkEmail($email) {
         $query = 'SELECT email FROM users WHERE email = :email;';
