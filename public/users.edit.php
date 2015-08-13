@@ -18,54 +18,13 @@
 
 
 		$new_user = new User();
-		if (Input::has('first_name')) {
+		$user_id = (int)$_SESSION['user_id'];
+		if (Input::has('first_name') && Input::has('last_name') && Input::has('email') && Input::has('password')) {
 
-			$stmt = $dbc->prepare('UPDATE users
-                      SET first_name=:first_name
-                      WHERE id=:id');
-
-			$stmt->bindValue(':first_name', Input::get(first_name), PDO::PARAM_STR);
+			
 		}
-			$stmt->execute()
 
-		if (Input::has('last_name')) {
-
-			$stmt = $dbc->prepare('UPDATE users
-                     SET last_name=:last_name
-                     WHERE id=:id');
-			$stmt->bindValue(':last_name', Input::get(last_name), PDO::PARAM_STR);
-		}
-			$stmt->execute()
-
-		if (Input::has('email')) {
-
-			$stmt = $dbc->prepare('UPDATE users
-                     SET email=:email
-                     WHERE id=:id');
-
-			$stmt->bindValue(':email', Input::get(email), PDO::PARAM_STR);
-
-		}
-			$stmt->execute()
-		if (Input::has('password')) {
-
-			$stmt = $dbc->prepare('UPDATE users
-                     SET password=:password
-                     WHERE id=:id');
-
-			$stmt->bindValue(':password', Input::get(password), PDO::PARAM_STR);
-		}
-			$stmt->execute()
-
-		if (Input::has('avatar_img')) {
-
-			$stmt = $dbc->prepare('UPDATE users
-                     SET avatar_img=:avatar_img
-                     WHERE id=:id');
-
-			$stmt->bindValue(':avatar_img', Input::get(avatar_img), PDO::PARAM_STR);
-		}
-			$stmt->execute();
+		
 
 	}
 
