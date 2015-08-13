@@ -1,13 +1,7 @@
 <?php
 require_once '../bootstrap.php';
-if (Input::has('ad_id')) {
-    $stmt = $dbc->prepare("SELECT * FROM ads WHERE ad_id = :ad_id");
-    $stmt->bindValue(':ad_id', Input::get('ad_id'), PDO:: PARAM_INT);
-    $stmt->execute();
-
-    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    // print_r($results);
-    $ad = $results[0];
+if (Input::has('ad')) {
+    $ad = Ad::find(Input::get('ad'));
 } else {
     header("Location: ads.index.php");
     exit;
@@ -22,6 +16,8 @@ if (Input::has('ad_id')) {
         <title>Pablo's List</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700,600,800,400" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
     <link href="css/pasta.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -29,7 +25,12 @@ if (Input::has('ad_id')) {
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/spacings.css">
     <link rel="stylesheet" href="css/color.css">
-
+    <style>
+    img.show-item {
+    	height:480px;
+    	width:480px;
+    }
+    </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
     <!-- Latest compiled and minified JavaScript -->
@@ -48,7 +49,7 @@ if (Input::has('ad_id')) {
     <div class="row">
 
        <div class="col-md-6">
-      <img src="<?= $ad['img_url'] ?>" alt="" draggable="false">
+      <img class="show-item" src="<?= $ad['img_url'] ?>" alt="" draggable="false">
       </div>
       <!-- end col -->
 
@@ -74,7 +75,7 @@ if (Input::has('ad_id')) {
           <a href="#" class="size-xl">XL</a>
         </div>-->
 
-        <a href="#" class="btn btn-dark btn-md add-to-cart left">Add to Cart</a>
+        <a href="#" class="btn btn-dark btn-md add-to-cart left">Contact Seller</a>
         <div class="icon-add-to-wishlist">
           <a href="#"><i class="fa fa-heart"></i></a>
         </div>
@@ -114,18 +115,19 @@ if (Input::has('ad_id')) {
 
         <div class="col-md-12 mt-70">
         <div class="tabs">
-          <ul class="nav nav-tabs">
+
+          <!-- <ul class="nav nav-tabs">
             <li class="active">
               <a href="#tab-one" data-toggle="tab">Similar Listings</a>
             </li>
             <li>
               <a href="#tab-two" data-toggle="tab">Contact Seller</a>
             </li>
-          </ul>
+          </ul> --> -->
           <!-- end tabs -->
 
           <!-- tab content -->
-          <div class="tab-content pb-0">
+          <!-- <div class="tab-content pb-0">
 
             <div class="tab-pane fade in active" id="tab-one">
               <p>
@@ -136,15 +138,15 @@ if (Input::has('ad_id')) {
             </div>
 
              <div class="tab-pane fade" id="tab-two">
-             <?php include_once '../views/forms/contact_form.php';?>
-            </div> 
+             <?php //include_once '../views/forms/contact_form.php';?>
+            </div> -->
           <!-- end tab content -->
 
-        </div>
-      </div>
+        <!-- </div>
+      </div> -->
       <!-- end tabs -->
 
-       
+
         </div>
       </div>
         </div>

@@ -34,7 +34,7 @@
             <img alt="@j-beere" class="avatar" height="30" src="<?= $_SESSION['avatar_img'] ?>" width="30">
             <span class="caret"></span> </a>
             <ul class="dropdown-menu" role="menu">
-              <li><a href="" >Show My Listings</a></li>
+              <li><a href="users.show.php" >Show My Listings</a></li>
               <li><a href="ads.create.php" >Post New Listing</a></li>
               <li><a href="" >My Watchlist</a></li>
               <li class="divider"></li>

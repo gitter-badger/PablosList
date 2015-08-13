@@ -6,10 +6,14 @@ $stmt->bindValue(':user_id', $_SESSION['user_id'], PDO:: PARAM_INT);
 $stmt->execute();
 
 $ads = $stmt->fetchAll(PDO::FETCH_ASSOC);
- ?>
+
+$user_id = $_SESSION['user_id'];
+$ads = Ad::allByUser($user_id);
+$userInfo = User::find($user_id);
+?>
 <html>
 <head>
-	    <title>Pablo's List</title>
+	<title>Pablo's List</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
@@ -19,6 +23,7 @@ $ads = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/spacings.css">
     <link rel="stylesheet" href="css/color.css">
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
@@ -43,16 +48,19 @@ img.show-item {
 	<section class="container-fluid">
         <?php include_once '../views/partials/navbar.php';?>
     </section>
-<div class="container">
-	</div>
 	<div class="col-md-12 center">
-		<h1>Your Listings</h1>
+
+
+		<h1><?= $userInfo->first_name . "'s" ?> Listings</h1>
+
 		<div class="row shop-catalogue grid-view left">
     	<?php foreach($ads as $ad) : ?>
         	<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 product product-grid">
 				<div class="product-item show-image">
 					<div class="product-img hover-1">
-    				  <a href="#">							
+
+    				  <a href="#">
+
     				    <img src="<?= $ad['img_url']; ?>" alt="" class="show-item">
     				  </a>
 					  <div class="hover-overlay"></div>
@@ -70,7 +78,9 @@ img.show-item {
 					</div>
 						<span class="price">
 					<ins>
+
 						<span class="ammount"><?= $ad['price']; ?></span>
+
 					</ins>
 						</span>
 							<p class="product-description"><?= $ad['tags']; ?></p>
