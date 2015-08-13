@@ -46,15 +46,25 @@
 .show-image {
 	height:	433px;
 	width:292px;
-	padding-top: 20px;
-	padding-left: 20px;
-	padding-right: 20px;
-	padding-bottom: 20px;
+
+}
+.show-image {
+    border-radius: 25px;
+    border: 2px solid #d3d3d3;
+    background-color:white;
+    padding: 20px; 
+    width: 300px;
+    height: 350px; 
 }
 img.show-item {
 	height:260px;
 	width:300px;
 }
+body {
+	background-color:#d3d3d3;
+}
+
+
 
 
     </style>
@@ -63,7 +73,7 @@ img.show-item {
  <?php include_once '../views/partials/navbar.php';?>
 <div class="container">
 	</div>
-	<div class="col-md-1 center">
+	<div class="col-md-12 center">
 		<div class="row shop-catalogue grid-view left">
     	<?php foreach($ads as $ad) : ?>
         	<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 product product-grid">
@@ -108,10 +118,10 @@ img.show-item {
 	 <a type="button" class="btn btn-primary" href="ads.index.php?page=<?= ($page + 1) ?>">Next Page</a>
 	 <?php } ?>
 	</div>
-</div>
-<div class="move">
- <?php include_once '../views/partials/footer.php';?>
-</div>
+
+	<div class="move">
+	 <?php include_once '../views/partials/footer.php';?>
+	</div>
 
 
 

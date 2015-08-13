@@ -30,18 +30,18 @@ $userInfo = User::find($user_id);
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <style type="text/css">
-.show-image {
-	height:	433px;
-	width:292px;
-	padding-top: 20px;
-	padding-left: 20px;
-	padding-right: 20px;
-	padding-bottom: 20px;
-}
-img.show-item {
-	height:322px;
-	width:262.484px;
-}
+	.show-image {
+		height:	433px;
+		width:292px;
+		padding-top: 20px;
+		padding-left: 20px;
+		padding-right: 20px;
+		padding-bottom: 20px;
+	}
+	img.show-item {
+		height:322px;
+		width:262.484px;
+	}
     </style>
 </head>
 <body>
