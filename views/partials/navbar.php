@@ -31,7 +31,7 @@
           <li><a><?= $_SESSION['LOGGED_IN_USER'] ?></a></li>
           <li class="dropdown">
             <a href="" class="dropdown-toggle" data-toggle="dropdown">
-            <img alt="@j-beere" class="avatar" height="30" src="<?= $_SESSION['avatar_img'] ?>" width="30">
+            <img  src="<?= $_SESSION['avatar_img'] ?>" class="avatar" height="30"  alt="@j-beere" width="30">
             <span class="caret"></span> </a>
             <ul class="dropdown-menu" role="menu">
               <li><a href="users.show.php" >Show My Listings</a></li>

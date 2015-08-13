@@ -1,26 +1,30 @@
 <?php
 	require_once '../bootstrap.php';
 
-	if(Input::has('create_user'))
-	{
+	if(Input::has('create_user')) {
 		if(Input::get('password') !== Input::get('confirm_password'))
 		{
-			//redirect
-			echo "password confirmation doesn't match";
+			$passwordError = "Password confirmation doesn't match password.";
 		}
 
-		extract($_REQUEST);
-
-		$hashed_password = password_hash(trim(Input::get('password')), PASSWORD_DEFAULT);
-
 		$new_user = new User();
-		$new_user->first_name = Input::get('first_name');
-		$new_user->last_name  = Input::get('last_name');
-		$new_user->email      = Input::get('email'); // needs to check if already exists in _db; real time update would be nice; can be done with exceptions
-		$new_user->password   = $hashed_password;
-		$new_user->avatar_img = Input::get('avatar_img');
+		if ( !$new_user->checkEmail(Input::get('email')) ) {
+			$hashed_password = password_hash(trim(Input::get('password')), PASSWORD_DEFAULT);
+			$new_user->first_name = Input::get('first_name');
+			$new_user->last_name  = Input::get('last_name');
+			$new_user->email      = Input::get('email');
+			$new_user->password   = $hashed_password;
+			// $new_user->avatar_img = Input::get('avatar_img');
+			if ( $new_user->insert() ) {
+				if ( Auth::attempt(Input::get('email'), Input::get('password'), $dbc) ) {
+					header("Location: index.php");
+					exit();
+				}
+			}
+		} else {
+			$emailError = "Cannot create new account with this email.";
+		}
 
-		$new_user->save();
 	}
 
 ?>
@@ -58,19 +62,25 @@
 							<div class="col-lg-12">
 								<form id="register-form" action="" method="post" role="form">
 									<div class="form-group">
-										<input type="text" name="first_name" id="first_name" tabindex="1" class="form-control" placeholder="First Name" value="">
+										<input type="text" name="first_name" id="first_name" tabindex="1" class="form-control" placeholder="First Name" value="<?= Input::get('first_name') ?>">
 									</div>
                                     <div class="form-group">
-										<input type="text" name="last_name" id="last_name" tabindex="1" class="form-control" placeholder="Last Name" value="">
+										<input type="text" name="last_name" id="last_name" tabindex="1" class="form-control" placeholder="Last Name" value="<?= Input::get('last_name') ?>">
 									</div>
 									<div class="form-group">
-										<input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
+										<input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="<?= Input::get('email') ?>">
+										<?php if (isset($emailError)) { ?>
+											<p class="text-danger"><?= $emailError ?></p>
+										<?php } ?>
 									</div>
 									<div class="form-group">
 										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
 									</div>
 									<div class="form-group">
 										<input type="password" name="confirm_password" id="confirm_password" tabindex="2" class="form-control" placeholder="Confirm Password">
+										<?php if (isset($passwordError)) { ?>
+											<p class="text-danger"><?= $passwordError ?></p>
+										<?php } ?>
 									</div>
 									<div class="form-group">
 										<div class="row">

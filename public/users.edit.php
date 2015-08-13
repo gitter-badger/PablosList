@@ -69,7 +69,7 @@
 					<div class="panel-heading">
 						<div class="row">
 							<div class="col-xs-12">
-								<a href="#" id="register-form-link">Register</a>
+								<a href="#" id="register-form-link">Edit</a>
 							</div>
 						</div>
 						<hr>
