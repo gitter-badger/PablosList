@@ -4,7 +4,6 @@
 	class Ad extends Model
 	{
 		protected static $table = 'ads';
-		protected static $id    = 'ad_id';
 
 
 		public function insert()
@@ -24,6 +23,29 @@
 	        $stmt->execute();
 
 	    }
+
+	    public function update()
+    {
+        $table = static::$table;
+        // @TODO: Ensure that update is properly handled with the id key
+        $query = "UPDATE $table SET
+                    title = :title,
+                    price = :price,
+                    img_url = :img_url,
+                    tags = :tags,
+                    description = :description
+                    WHERE ad_id = :id";
+        // @TODO: Use prepared statements to ensure data security
+        $stmt = self::$dbc->prepare($query);
+        $stmt->bindValue(':title', $this->title, PDO::PARAM_STR);
+        $stmt->bindValue(':price', $this->price, PDO::PARAM_STR);
+        $stmt->bindValue(':img_url', $this->img_url, PDO::PARAM_STR);
+        $stmt->bindValue(':tags', $this->tags,  PDO::PARAM_STR);
+        $stmt->bindValue(':description', $this->description. PDO::PARAM_STR);
+        $stmt->bindValue(':id', $this->id, PDO::PARAM_INT);
+        $stmt->execute();
+    }
+
 		public static function allByUser($user_id)
 		{
 			parent::dbConnect();

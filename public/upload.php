@@ -7,7 +7,7 @@ if($_FILES) {
         if(!$_FILES['somefile']['error']) {
             if($_FILES['somefile']['size'] > (1024000)) {
                 $valid_file = false;
-                $errorMessage = 'Oops!  Your file\'s size is to large.';
+                $errorMessage = 'Oops! Your file\'s size is to large.';
             } else {
                 $valid_file = true;
             }

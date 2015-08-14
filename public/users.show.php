@@ -63,9 +63,13 @@ $userInfo = User::find($user_id);
     				  </a>
 					  <div class="hover-overlay"></div>
 						<div class="product-add-to-cart">
-						  <a href="ads.show.php?ad_id=<?= $ad['ad_id'] ?>" class="btn btn-dark btn-md">Edit this listing</a>
+						  <a href="ads.edit.php?ad_id=<?= $ad['ad_id'] ?>" class="btn btn-dark btn-md">Edit this listing</a>
 						</div>
+						<!-- <div class="product-add-to-cart">
+						  
+						</div> -->
 						  <div class="product-add-to-wishlist">
+						  <a href="ads.show.php?ad=<?= $ad['ad_id'] ?>" class="btn btn-dark btn-md">Show Listing Page</a>
 							<a href="#"><i class="fa fa-heart"></i></a>
 						  </div>
 					</div>

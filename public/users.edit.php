@@ -1,32 +1,28 @@
-<!-- user editing form -->
-<?php
+ <?php
 	require_once '../bootstrap.php';
+        $id = (int)$_SESSION['user_id'];
 
-	if(Input::has('edit_user'))
-	{
+        if(Input::get('password') !== Input::get('confirm_password'))
+        {
+			$passwordError = "Password confirmation doesn't match password.";
+		}
+
 		if(Input::get('password') == Input::get('confirm_password'))
-		{
-			//redirect
+        {
 			$hashed_password = password_hash(trim(Input::get('password')), PASSWORD_DEFAULT);
-
-		} else {
-			
-			echo "password confirmation doesn't match";
 		}
 
-		extract($_REQUEST);
+		if (Input::has('first_name') && Input::has('last_name') && Input::has('email') && isset($hashed_password))
+        {
+    		$new_user = new User();
+    		$new_user->id = $id;
+            $new_user->first_name = Input::get('first_name');
+            $new_user->last_name = Input::get('last_name');
+            $new_user->email = Input::get('email');
+            $new_user->password = $hashed_password;
+            $new_user->update();
 
-
-		$new_user = new User();
-		$user_id = (int)$_SESSION['user_id'];
-		if (Input::has('first_name') && Input::has('last_name') && Input::has('email') && Input::has('password')) {
-
-			
 		}
-
-		
-
-	}
 
 ?>
 <!DOCTYPE html>
@@ -53,7 +49,8 @@
 					<div class="panel-heading">
 						<div class="row">
 							<div class="col-xs-12">
-								<a href="#" id="register-form-link">Edit</a>
+								<a href="#" id="register-form-link">Edit User Information</a>
+
 							</div>
 						</div>
 						<hr>
@@ -87,7 +84,8 @@
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
                                                 <input hidden name="edit_user" value="true">
-												<input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="">
+												<input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Save Changes">
+
 											</div>
 										</div>
 									</div>
