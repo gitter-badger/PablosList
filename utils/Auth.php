@@ -7,31 +7,32 @@ require_once '../bootstrap.php';
 class Auth
 {
 
-
-	public static function attempt($email, $password, $dbc)
-    {
-		$stmtPassword = password_hash($password, PASSWORD_DEFAULT);
-        $query = "SELECT user_id, avatar_img FROM users WHERE email = '$email'
-		AND password = '$stmtPassword'";
-        $stmt = $dbc->exec($query);
-		var_dump($stmt);
-        // $results = $stmt->fetchAll();
-
-		$attemptLog = new Log();
-		if ($stmt) {
-			// var_dump($results);
-	        $_SESSION['user_id'] = $results['user_id'];
-			$_SESSION['LOGGED_IN_USER'] = $email;
-			$_SESSION['avatar_img'] = $results['avatar_img'];
-			var_dump($_SESSION['avatar_img']);
-	    	$attemptLog->info("User: $email logged in.");
-	        return true;
-        } else {
-        	$attemptLog->error("User: $email failed to log in");
-                throw new Exception('No account was found with the  email and password.');
-            return false;
-        }
-    }
+		 public static function attempt($email, $password, $dbc)
+	     {
+	         $query = 'SELECT user_id, password, avatar_img FROM users WHERE email = :email;';
+	         $stmt  = $dbc->prepare($query);
+	         $stmt->bindValue(':email', $email, PDO::PARAM_STR);
+	         $stmt->execute();
+	         $results = $stmt->fetch(PDO::FETCH_ASSOC);
+	         $userId  = $results['user_id'];
+			 $avatar_img = $results['avatar_img'];
+	         $passwordHash = $results['password'];
+	 		$attemptLog = new Log();
+	 		if(password_verify($password, $passwordHash))
+	         {
+	         	$attemptLog->info("User: $email logged in.");
+	 			$_SESSION['LOGGED_IN_USER'] = $email;
+	 			$_SESSION['user_id'] = $userId;
+				$_SESSION['avatar_img'] = $avatar_img;
+	             return true;
+	         }
+	         else
+	         {
+	         	$attemptLog->error("User: $email failed to log in");
+	                 throw new Exception('No account was found with the  email and password.');
+	             return false;
+	         }
+	     }
 
     static function currentUser()
     {

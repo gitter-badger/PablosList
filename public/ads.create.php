@@ -39,11 +39,11 @@ if (Input::has('title') && Input::has('price') && Input::has('tags') && Input::h
 
     $user_id = (int)$_SESSION['user_id'];
 	$new_ad = new Ad();
-	$new_ad->tags         = Input::get('tags');
-	$new_ad->title        = Input::get('title');
+	$new_ad->tags         = Input::getString('tags');
+	$new_ad->title        = Input::getString('title');
 	$new_ad->price        = Input::getNumber('price');
-	$new_ad->img_url      = Input::get('img_url');
-	$new_ad->description  = Input::get('description');
+	$new_ad->img_url      = Input::getString('img_url');
+	$new_ad->description  = Input::getString('description');
 	$new_ad->date_created = date('Y-m-d');
 	$new_ad->user_id      = $user_id;
 	$new_ad->insert();

@@ -16,17 +16,16 @@
 			$new_user->password   = $hashed_password;
 			// $new_user->avatar_img = Input::get('avatar_img');
 			if ( $new_user->insert() ) {
-				if ( Auth::attempt(Input::get('email'), Input::get('password'), $dbc) ) {
+
 					header("Location: index.php");
 					exit();
-				}
-			}
-		} else {
+
+			} else {
 			$emailError = "Cannot create new account with this email.";
+			}
+
 		}
-
 	}
-
 ?>
 <!DOCTYPE html>
 <html>

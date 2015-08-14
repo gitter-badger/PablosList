@@ -4,7 +4,6 @@ require_once 'BaseModel.php';
 class User extends Model {
 
     protected static $table = 'users';
-	protected static $id    = 'user_id';
 
     public static function find($id)
     {
@@ -29,6 +28,39 @@ class User extends Model {
         return $instance;
     }
 
+    public function save()
+    {
+        // Ensure there are attributes before attempting to save
+        if (isset($this->attributes)){
+
+            if (isset($this->attributes['user_id'])){
+            // Perform the proper action - if the `id` is set, this is an update, if not it is a insert
+                $this->update();
+            } else {
+                $this->insert();
+            }
+        }
+    }
+
+    public function update()
+    {
+        $table = static::$table;
+        // @TODO: Ensure that update is properly handled with the id key
+        $query = "UPDATE $table SET
+                    first_name = :first_name,
+                    last_name = :last_name,
+                    email = :email,
+                    password = :password
+                    WHERE user_id = :id";
+        // @TODO: Use prepared statements to ensure data security
+        $stmt = self::$dbc->prepare($query);
+        $stmt->bindValue(':first_name', $this->first_name,  PDO::PARAM_STR);
+        $stmt->bindValue(':last_name',  $this->last_name,   PDO::PARAM_STR);
+        $stmt->bindValue(':email',      $this->email,       PDO::PARAM_STR);
+        $stmt->bindValue(':password',   $this->password,    PDO::PARAM_STR);
+        $stmt->bindValue(':id',         $this->id,          PDO::PARAM_INT);
+        $stmt->execute();
+    }
     public function insert()
     {
         $stmt = self::$dbc->prepare('INSERT INTO users (first_name, last_name, email,  password, avatar_img)
@@ -39,12 +71,9 @@ class User extends Model {
         $stmt->bindValue(':email', $this->email, PDO::PARAM_STR);
         $stmt->bindValue(':password', $this->password, PDO::PARAM_STR);
         $stmt->bindValue(':avatar_img', 'img/pablo.jpg', PDO::PARAM_STR);
-
         return $stmt->execute();
-
-
-
     }
+
 
     public function checkEmail($email) {
         $query = 'SELECT email FROM users WHERE email = :email;';

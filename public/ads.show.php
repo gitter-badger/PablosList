@@ -22,7 +22,7 @@ if (Input::has('ad')) {
     <link href="css/pasta.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/font-awesome.css">
-    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
     <link rel="stylesheet" href="css/spacings.css">
     <link rel="stylesheet" href="css/color.css">
     <style>
