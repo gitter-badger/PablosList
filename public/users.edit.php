@@ -87,7 +87,7 @@
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
                                                 <input hidden name="edit_user" value="true">
-												<input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
+												<input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="">
 											</div>
 										</div>
 									</div>
