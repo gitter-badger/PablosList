@@ -40,7 +40,7 @@
               <li class="divider"></li>
               <li><a href="" >Ran Out Of Cool Things</a></li>
               <li class="divider"></li>
-              <li><a href="">My Profile</a></li>
+              <li><a href="users.edit.php">Edit User Info</a></li>
               <li><a href="auth.logout.php">Logout</a></li>
             </ul>
           </li>
@@ -66,7 +66,7 @@
 										</div>
 										<div class="form-group">
                                             <? if(!empty($errors) && Input::has('login_attempt')): ?>
-                                            <h5 style="color: yellow"><?= $errors[0] ?></h5>
+                                            <p class="text-danger"><?= $errors[0] ?></p>
                                             <? endif; ?>
                                              <input hidden name="login_attempt" value="true">
 											 <button type="submit" class="btn btn-primary btn-block">Sign in</button>
